@@ -1,0 +1,23 @@
+targets:
+  $default:
+    builders:
+      drift_dev:
+        options:
+          sql:
+            dialects:
+              - sqlite
+              - postgres
+            options:
+              version: "3.34"
+          generate_connect_constructor: false
+          skip_verification_code: true
+          # generate_values_in_copy_with (defaults to true): Generates a Value<T?> instead of T?
+          # for nullable columns in copyWith. This allows to set columns back to null (by using Value(null)).
+          # Passing null was ignored before, making it impossible to set columns to null.
+          generate_values_in_copy_with : false
+          mutable_classes : false
+          named_parameters_always_required : false
+          apply_converters_on_variables : true
+          scoped_dart_components : false
+          store_date_time_values_as_text: true
+          assume_correct_reference: true
