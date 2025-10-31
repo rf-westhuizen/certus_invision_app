@@ -8,10 +8,12 @@ import 'package:drift_postgres/drift_postgres.dart';
 import 'package:flutter/foundation.dart';
 import 'package:postgres/postgres.dart' as pg;
 import 'package:uuid/uuid.dart';
+import '../types/date.dart';
 import '../types/json.dart';
 import '../types/numeric.dart';
 import '../types/timestamp_no_timezone.dart';
 import '../types/uuid.dart';
+import '../types/xml.dart';
 import 'dao/certus_invision_dao.dart';
 import 'models/drift_database_types.dart';
 

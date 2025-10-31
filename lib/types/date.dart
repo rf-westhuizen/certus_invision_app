@@ -1,7 +1,14 @@
 import 'package:drift/drift.dart';
 import 'package:drift_postgres/drift_postgres.dart';
 
-// Fallback for SQLite since it does not support 'DATE'.
+const dateType = DialectAwareSqlType<DateTime>.via(
+  fallback: DateAsTextType(),
+  overrides: {
+    SqlDialect.postgres: CustomPostgresDateType(),
+    SqlDialect.sqlite: DateAsTextType(),
+  },
+);
+
 class DateAsTextType implements CustomSqlType<DateTime> {
   const DateAsTextType();
 
@@ -64,10 +71,3 @@ class CustomPostgresDateType implements CustomSqlType<DateTime> {
     return PgTypes.date.sqlTypeName(context);
   }
 }
-
-const dateType = DialectAwareSqlType<DateTime>.via(
-  fallback: DateAsTextType(),
-  overrides: {
-    SqlDialect.postgres: CustomPostgresDateType(),
-  },
-);

@@ -1,6 +1,12 @@
 import 'package:drift/drift.dart';
 
-// Define the Numeric type for PostgreSQL
+const numericType = DialectAwareSqlType<double>.via(
+  fallback: FallbackNumericType(),
+  overrides: {
+    SqlDialect.postgres: NumericType(),
+  },
+);
+
 class NumericType implements CustomSqlType<double> {
   const NumericType();
 
@@ -18,7 +24,6 @@ class NumericType implements CustomSqlType<double> {
   String sqlTypeName(GenerationContext context) => 'NUMERIC';
 }
 
-// Define a fallback type for SQLite that uses REAL (double is directly supported in SQLite)
 class FallbackNumericType implements CustomSqlType<double> {
   const FallbackNumericType();
 
@@ -36,10 +41,3 @@ class FallbackNumericType implements CustomSqlType<double> {
   String sqlTypeName(GenerationContext context) => 'REAL';
 }
 
-// Use DialectAwareSqlType to appropriately use types based on the SQL dialect
-const numericType = DialectAwareSqlType<double>.via(
-  fallback: FallbackNumericType(),
-  overrides: {
-    SqlDialect.postgres: NumericType(),
-  },
-);

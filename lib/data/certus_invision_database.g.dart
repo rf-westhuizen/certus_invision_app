@@ -20,9 +20,9 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
       'json', aliasedName, true,
       type: jsonType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<PgDate> date = GeneratedColumn<PgDate>(
+  late final GeneratedColumn<DateTime> date = GeneratedColumn<DateTime>(
       'date', aliasedName, true,
-      type: PgTypes.date, requiredDuringInsert: false);
+      type: dateType, requiredDuringInsert: false);
   @override
   late final GeneratedColumn<double> number = GeneratedColumn<double>(
       'number', aliasedName, true,
@@ -44,7 +44,7 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
   @override
   late final GeneratedColumn<String> xml = GeneratedColumn<String>(
       'xml', aliasedName, true,
-      type: DriftSqlType.string, requiredDuringInsert: false);
+      type: xmlType, requiredDuringInsert: false);
   @override
   late final GeneratedColumn<int> autoIncrement = GeneratedColumn<int>(
       'auto_increment', aliasedName, true,
@@ -72,7 +72,7 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
       json: attachedDatabase.typeMapping
           .read(jsonType, data['${effectivePrefix}json']),
       date: attachedDatabase.typeMapping
-          .read(PgTypes.date, data['${effectivePrefix}date']),
+          .read(dateType, data['${effectivePrefix}date']),
       number: attachedDatabase.typeMapping
           .read(numericType, data['${effectivePrefix}number']),
       timestamp: attachedDatabase.typeMapping.read(
@@ -80,7 +80,7 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
       boolValue: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}bool_value']),
       xml: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}xml']),
+          .read(xmlType, data['${effectivePrefix}xml']),
       autoIncrement: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}auto_increment']),
     );
@@ -96,7 +96,7 @@ class DriftDatabaseType extends DataClass
     implements Insertable<DriftDatabaseType> {
   final UuidValue? id;
   final Object? json;
-  final PgDate? date;
+  final DateTime? date;
   final double? number;
   final PgDateTime? timestamp;
   final bool? boolValue;
@@ -121,7 +121,7 @@ class DriftDatabaseType extends DataClass
       map['json'] = Variable<Object>(json, jsonType);
     }
     if (!nullToAbsent || date != null) {
-      map['date'] = Variable<PgDate>(date, PgTypes.date);
+      map['date'] = Variable<DateTime>(date, dateType);
     }
     if (!nullToAbsent || number != null) {
       map['number'] = Variable<double>(number, numericType);
@@ -134,7 +134,7 @@ class DriftDatabaseType extends DataClass
       map['bool_value'] = Variable<bool>(boolValue);
     }
     if (!nullToAbsent || xml != null) {
-      map['xml'] = Variable<String>(xml);
+      map['xml'] = Variable<String>(xml, xmlType);
     }
     if (!nullToAbsent || autoIncrement != null) {
       map['auto_increment'] = Variable<int>(autoIncrement);
@@ -168,7 +168,7 @@ class DriftDatabaseType extends DataClass
     return DriftDatabaseType(
       id: serializer.fromJson<UuidValue?>(json['id']),
       json: serializer.fromJson<Object?>(json['json']),
-      date: serializer.fromJson<PgDate?>(json['date']),
+      date: serializer.fromJson<DateTime?>(json['date']),
       number: serializer.fromJson<double?>(json['number']),
       timestamp: serializer.fromJson<PgDateTime?>(json['timestamp']),
       boolValue: serializer.fromJson<bool?>(json['boolValue']),
@@ -182,7 +182,7 @@ class DriftDatabaseType extends DataClass
     return <String, dynamic>{
       'id': serializer.toJson<UuidValue?>(id),
       'json': serializer.toJson<Object?>(json),
-      'date': serializer.toJson<PgDate?>(date),
+      'date': serializer.toJson<DateTime?>(date),
       'number': serializer.toJson<double?>(number),
       'timestamp': serializer.toJson<PgDateTime?>(timestamp),
       'boolValue': serializer.toJson<bool?>(boolValue),
@@ -194,7 +194,7 @@ class DriftDatabaseType extends DataClass
   DriftDatabaseType copyWith(
           {UuidValue? id,
           Object? json,
-          PgDate? date,
+          DateTime? date,
           double? number,
           PgDateTime? timestamp,
           bool? boolValue,
@@ -260,7 +260,7 @@ class DriftDatabaseType extends DataClass
 class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
   final Value<UuidValue?> id;
   final Value<Object?> json;
-  final Value<PgDate?> date;
+  final Value<DateTime?> date;
   final Value<double?> number;
   final Value<PgDateTime?> timestamp;
   final Value<bool?> boolValue;
@@ -289,7 +289,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
   static Insertable<DriftDatabaseType> custom({
     Expression<UuidValue>? id,
     Expression<Object>? json,
-    Expression<PgDate>? date,
+    Expression<DateTime>? date,
     Expression<double>? number,
     Expression<PgDateTime>? timestamp,
     Expression<bool>? boolValue,
@@ -311,7 +311,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
   DriftDatabaseTypesCompanion copyWith(
       {Value<UuidValue?>? id,
       Value<Object?>? json,
-      Value<PgDate?>? date,
+      Value<DateTime?>? date,
       Value<double?>? number,
       Value<PgDateTime?>? timestamp,
       Value<bool?>? boolValue,
@@ -339,7 +339,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
       map['json'] = Variable<Object>(json.value, jsonType);
     }
     if (date.present) {
-      map['date'] = Variable<PgDate>(date.value, PgTypes.date);
+      map['date'] = Variable<DateTime>(date.value, dateType);
     }
     if (number.present) {
       map['number'] = Variable<double>(number.value, numericType);
@@ -352,7 +352,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
       map['bool_value'] = Variable<bool>(boolValue.value);
     }
     if (xml.present) {
-      map['xml'] = Variable<String>(xml.value);
+      map['xml'] = Variable<String>(xml.value, xmlType);
     }
     if (autoIncrement.present) {
       map['auto_increment'] = Variable<int>(autoIncrement.value);
@@ -398,7 +398,7 @@ typedef $$DriftDatabaseTypesTableCreateCompanionBuilder
     = DriftDatabaseTypesCompanion Function({
   Value<UuidValue?> id,
   Value<Object?> json,
-  Value<PgDate?> date,
+  Value<DateTime?> date,
   Value<double?> number,
   Value<PgDateTime?> timestamp,
   Value<bool?> boolValue,
@@ -409,7 +409,7 @@ typedef $$DriftDatabaseTypesTableUpdateCompanionBuilder
     = DriftDatabaseTypesCompanion Function({
   Value<UuidValue?> id,
   Value<Object?> json,
-  Value<PgDate?> date,
+  Value<DateTime?> date,
   Value<double?> number,
   Value<PgDateTime?> timestamp,
   Value<bool?> boolValue,
@@ -432,7 +432,7 @@ class $$DriftDatabaseTypesTableFilterComposer
   ColumnFilters<Object> get json => $composableBuilder(
       column: $table.json, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<PgDate> get date => $composableBuilder(
+  ColumnFilters<DateTime> get date => $composableBuilder(
       column: $table.date, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<double> get number => $composableBuilder(
@@ -466,7 +466,7 @@ class $$DriftDatabaseTypesTableOrderingComposer
   ColumnOrderings<Object> get json => $composableBuilder(
       column: $table.json, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<PgDate> get date => $composableBuilder(
+  ColumnOrderings<DateTime> get date => $composableBuilder(
       column: $table.date, builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<double> get number => $composableBuilder(
@@ -501,7 +501,7 @@ class $$DriftDatabaseTypesTableAnnotationComposer
   GeneratedColumn<Object> get json =>
       $composableBuilder(column: $table.json, builder: (column) => column);
 
-  GeneratedColumn<PgDate> get date =>
+  GeneratedColumn<DateTime> get date =>
       $composableBuilder(column: $table.date, builder: (column) => column);
 
   GeneratedColumn<double> get number =>
@@ -551,7 +551,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
           updateCompanionCallback: ({
             Value<UuidValue?> id = const Value.absent(),
             Value<Object?> json = const Value.absent(),
-            Value<PgDate?> date = const Value.absent(),
+            Value<DateTime?> date = const Value.absent(),
             Value<double?> number = const Value.absent(),
             Value<PgDateTime?> timestamp = const Value.absent(),
             Value<bool?> boolValue = const Value.absent(),
@@ -571,7 +571,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
           createCompanionCallback: ({
             Value<UuidValue?> id = const Value.absent(),
             Value<Object?> json = const Value.absent(),
-            Value<PgDate?> date = const Value.absent(),
+            Value<DateTime?> date = const Value.absent(),
             Value<double?> number = const Value.absent(),
             Value<PgDateTime?> timestamp = const Value.absent(),
             Value<bool?> boolValue = const Value.absent(),

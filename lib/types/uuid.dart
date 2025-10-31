@@ -1,6 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:drift_postgres/drift_postgres.dart';
 
+const uuidType = DialectAwareSqlType<UuidValue>.via(
+  fallback: _UuidAsTextType(),
+  overrides: {SqlDialect.postgres: PgTypes.uuid},
+);
+
 class NativeUuidType implements CustomSqlType<UuidValue> {
   const NativeUuidType();
 
@@ -45,7 +50,3 @@ class _UuidAsTextType implements CustomSqlType<UuidValue> {
   String sqlTypeName(GenerationContext context) => 'text';
 }
 
-const uuidType = DialectAwareSqlType<UuidValue>.via(
-  fallback: _UuidAsTextType(),
-  overrides: {SqlDialect.postgres: PgTypes.uuid},
-);

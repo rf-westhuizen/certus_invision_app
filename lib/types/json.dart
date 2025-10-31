@@ -3,6 +3,14 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:drift_postgres/drift_postgres.dart';
 
+const jsonType = DialectAwareSqlType.via(
+  fallback: _FallbackJsonType(),
+  overrides: {
+    SqlDialect.postgres: PgTypes.jsonb,
+  },
+);
+
+
 class _FallbackJsonType implements CustomSqlType<Map<String, dynamic>> {
   const _FallbackJsonType();
 
@@ -24,10 +32,3 @@ class _FallbackJsonType implements CustomSqlType<Map<String, dynamic>> {
     return jsonDecode(fromSql as String);
   }
 }
-
-const jsonType = DialectAwareSqlType.via(
-  fallback: _FallbackJsonType(),
-  overrides: {
-    SqlDialect.postgres: PgTypes.jsonb,
-  },
-);

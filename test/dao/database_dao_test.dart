@@ -31,52 +31,63 @@ void main() async{
     // });
     //
     // test('Test 2: Raw SQL syntax', () {});
+    //
+    // test('Test 3: Drift SQL syntax', () async {
+    //
+    //   final uuid = const Uuid().v4();
+    //   UuidValue uuidValue = UuidValue.fromString(uuid);
+    //   print('Generated UUID: $uuid');
+    //
+    //   // Create model and insert into the table
+    //   final newRecord = DriftDatabaseType(
+    //     id: uuidValue,
+    //     json: {"hello":"world"},
+    //     // json:     {
+    //     //   "user": {
+    //     //     "id": 123,
+    //     //     "name": "Rohan",
+    //     //     "contact": {
+    //     //       "email": "rf@gmail.com",
+    //     //       "phone": "555-1234"
+    //     //     }
+    //     //   }
+    //     // },
+    //     date: DateTime.now(),
+    //     number: 10114.550, // -5
+    //     timestamp: PgDateTime(DateTime.now()),
+    //     boolValue: false,
+    //     xml: '<root><element>Test 55</element></root>', // can't do this atm
+    //   );
+    //
+    //   final localResult = await localDb.certusInvisionDao.insertType(newRecord.toCompanion(true)); // .toCompanion(true) -> ignores nulls so DB defaults apply.
+    //   expect(localResult, greaterThan(0), reason: 'Local insert should return a positive PK');
+    //
+    //   final localFetched = await (localDb.select(localDb.driftDatabaseTypes)
+    //     ..where((t) => t.id.equals(uuidValue)))
+    //       .getSingleOrNull();
+    //
+    //   expect(localFetched, isNotNull, reason: 'Local row must exist after insert');
+    //   expect(localFetched!.id.toString(), equals(uuid));
+    //   expect(localFetched.json, equals({"hello":"world"}));
+    //   expect(localFetched.boolValue, isFalse);
+    //
+    //   final remoteResult = await remoteDb.certusInvisionDao.insertType(newRecord.toCompanion(true)); // .toCompanion(true) -> ignores nulls so DB defaults apply.
+    //   expect(remoteResult, greaterThan(0), reason: 'Remote insert should return a positive PK');
+    //
+    //     final remoteFetched = await (remoteDb.select(remoteDb.driftDatabaseTypes)
+    //       ..where((t) => t.id.equals(uuidValue)))
+    //         .getSingleOrNull();
+    //   expect(remoteFetched, isNotNull, reason: 'Remote row must exist after insert');
+    //   expect(remoteFetched!.id.toString(), equals(uuid));
+    //   expect(remoteFetched.json, equals({"hello":"world"}));
+    //   expect(remoteFetched.boolValue, isFalse);
+    //
+    //
+    // });
 
-    test('Test 3: Drift SQL syntax', () async {
-
-      final uuid = const Uuid().v4();
-      UuidValue uuidValue = UuidValue.fromString(uuid);
-      print('Generated UUID: $uuid');
-
-      // Create model and insert into the table
-      final newRecord = DriftDatabaseType(
-        id: uuidValue,
-        json: {"hello":"world"},
-        //date: PgDate(year: 2023, month: 1, day:1),
-        number: 10.0, // -5
-        timestamp: PgDateTime(DateTime.now().toUtc()),
-        boolValue: false,
-        //xml: <root><element>Test</element></root>, // can't do this atm
-      );
-
-      final localResult = await localDb.certusInvisionDao.insertType(newRecord.toCompanion(true)); // .toCompanion(true) -> ignores nulls so DB defaults apply.
-      expect(localResult, greaterThan(0), reason: 'Local insert should return a positive PK');
-
-      final localFetched = await (localDb.select(localDb.driftDatabaseTypes)
-        ..where((t) => t.id.equals(uuidValue)))
-          .getSingleOrNull();
-
-      expect(localFetched, isNotNull, reason: 'Local row must exist after insert');
-      expect(localFetched!.id.toString(), equals(uuid));
-      expect(localFetched.json, equals({"hello":"world"}));
-      expect(localFetched.boolValue, isFalse);
-
-      final remoteResult = await remoteDb.certusInvisionDao.insertType(newRecord.toCompanion(true)); // .toCompanion(true) -> ignores nulls so DB defaults apply.
-      expect(remoteResult, greaterThan(0), reason: 'Remote insert should return a positive PK');
-
-      final remoteFetched = await (remoteDb.select(remoteDb.driftDatabaseTypes)
-        ..where((t) => t.id.equals(uuidValue)))
-          .getSingleOrNull();
-
-      expect(remoteFetched, isNotNull, reason: 'Remote row must exist after insert');
-      expect(remoteFetched!.id.toString(), equals(uuid));
-      expect(remoteFetched.json, equals({"hello":"world"}));
-      expect(remoteFetched.boolValue, isFalse);
-
-
-
-      // List<DriftDatabaseType> result = await localDb.certusInvisionDao.getAll();
-      // for(var row in result){
+    test('Test 4: reading records', () async {
+      // List<DriftDatabaseType> localResult = await localDb.certusInvisionDao.getAll();
+      // for(var row in localResult){
       //   print('Local DB id: ${row.id}');
       //   print('Local DB json: ${row.json}');
       //   print('Local DB date: ${row.date}');
@@ -87,7 +98,21 @@ void main() async{
       //   print('Local DB auto int: ${row.autoIncrement}');
       // }
 
+      List<DriftDatabaseType> remoteResult = await remoteDb.certusInvisionDao.getAll();
+      for(var row in remoteResult){
+        print('Local DB id: ${row.id}');
+        print('Local DB json: ${row.json}');
+        print('Local DB date: ${row.date}');
+        print('Local DB number: ${row.number}');
+        print('Local DB timestamp no timezone: ${row.timestamp}');
+        print('Local DB boolean: ${row.boolValue}');
+        print('Local DB xml: ${row.xml}');
+        print('Local DB auto int: ${row.autoIncrement}');
+      }
+
     });
+
+
 
   });
 
