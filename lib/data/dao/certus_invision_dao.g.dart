@@ -8,4 +8,10 @@ mixin _$CertusInvisionDaoMixin on DatabaseAccessor<CertusInvisionDatabase> {
       attachedDatabase.driftDatabaseTypes;
   $MaintenanceEventsTable get maintenanceEvents =>
       attachedDatabase.maintenanceEvents;
+  $MaintenenceContactsTable get maintenenceContacts =>
+      attachedDatabase.maintenenceContacts;
+  $MaintenenceItemsTable get maintenenceItems =>
+      attachedDatabase.maintenenceItems;
+  $MaintenenceSchedTasksTable get maintenenceSchedTasks =>
+      attachedDatabase.maintenenceSchedTasks;
 }

@@ -462,11 +462,11 @@ class $MaintenanceEventsTable extends MaintenanceEvents
   final String? _alias;
   $MaintenanceEventsTable(this.attachedDatabase, [this._alias]);
   @override
-  late final GeneratedColumn<int> eventid = GeneratedColumn<int>(
+  late final GeneratedColumn<int> eventId = GeneratedColumn<int>(
       'eventid', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<int> machineid = GeneratedColumn<int>(
+  late final GeneratedColumn<int> machineId = GeneratedColumn<int>(
       'machineid', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
   @override
@@ -477,7 +477,7 @@ class $MaintenanceEventsTable extends MaintenanceEvents
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> faultdescription = GeneratedColumn<String>(
+  late final GeneratedColumn<String> faultDescription = GeneratedColumn<String>(
       'faultdescription', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
@@ -485,25 +485,25 @@ class $MaintenanceEventsTable extends MaintenanceEvents
       'date', aliasedName, true,
       type: timestampWithoutTimezoneType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> loggedby = GeneratedColumn<String>(
+  late final GeneratedColumn<String> loggedBy = GeneratedColumn<String>(
       'loggedby', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 100),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> reportedby = GeneratedColumn<String>(
+  late final GeneratedColumn<String> reportedBy = GeneratedColumn<String>(
       'reportedby', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 100),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> fixapplied = GeneratedColumn<String>(
+  late final GeneratedColumn<String> fixApplied = GeneratedColumn<String>(
       'fixapplied', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> referencenumber = GeneratedColumn<String>(
+  late final GeneratedColumn<String> referenceNumber = GeneratedColumn<String>(
       'referencenumber', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 100),
@@ -514,28 +514,28 @@ class $MaintenanceEventsTable extends MaintenanceEvents
       'cost', aliasedName, true,
       type: numericType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> inhouse = GeneratedColumn<String>(
+  late final GeneratedColumn<String> inHouse = GeneratedColumn<String>(
       'inhouse', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 10),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> contactused = GeneratedColumn<String>(
+  late final GeneratedColumn<String> contactUsed = GeneratedColumn<String>(
       'contactused', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 100),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> timefrom = GeneratedColumn<String>(
+  late final GeneratedColumn<String> timeFrom = GeneratedColumn<String>(
       'timefrom', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 20),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<String> timeto = GeneratedColumn<String>(
+  late final GeneratedColumn<String> timeTo = GeneratedColumn<String>(
       'timeto', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 20),
@@ -563,19 +563,19 @@ class $MaintenanceEventsTable extends MaintenanceEvents
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<PgDateTime> datefrom = GeneratedColumn<PgDateTime>(
+  late final GeneratedColumn<PgDateTime> dateFrom = GeneratedColumn<PgDateTime>(
       'datefrom', aliasedName, true,
       type: timestampWithoutTimezoneType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<PgDateTime> dateto = GeneratedColumn<PgDateTime>(
+  late final GeneratedColumn<PgDateTime> dateTo = GeneratedColumn<PgDateTime>(
       'dateto', aliasedName, true,
       type: timestampWithoutTimezoneType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<PgDateTime> logdate = GeneratedColumn<PgDateTime>(
+  late final GeneratedColumn<PgDateTime> logDate = GeneratedColumn<PgDateTime>(
       'logdate', aliasedName, true,
       type: timestampWithoutTimezoneType, requiredDuringInsert: false);
   @override
-  late final GeneratedColumn<int> schedeventid = GeneratedColumn<int>(
+  late final GeneratedColumn<int> schedEventId = GeneratedColumn<int>(
       'schedeventid', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
   @override
@@ -584,27 +584,27 @@ class $MaintenanceEventsTable extends MaintenanceEvents
       type: numericType, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
-        eventid,
-        machineid,
+        eventId,
+        machineId,
         type,
-        faultdescription,
+        faultDescription,
         date,
-        loggedby,
-        reportedby,
-        fixapplied,
-        referencenumber,
+        loggedBy,
+        reportedBy,
+        fixApplied,
+        referenceNumber,
         cost,
-        inhouse,
-        contactused,
-        timefrom,
-        timeto,
+        inHouse,
+        contactUsed,
+        timeFrom,
+        timeTo,
         planned,
         status,
         technician,
-        datefrom,
-        dateto,
-        logdate,
-        schedeventid,
+        dateFrom,
+        dateTo,
+        logDate,
+        schedEventId,
         downtime
       ];
   @override
@@ -613,38 +613,38 @@ class $MaintenanceEventsTable extends MaintenanceEvents
   String get actualTableName => $name;
   static const String $name = 'maintenanceeventsa';
   @override
-  Set<GeneratedColumn> get $primaryKey => const {};
+  Set<GeneratedColumn> get $primaryKey => {eventId};
   @override
   MaintenanceEvent map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return MaintenanceEvent(
-      eventid: attachedDatabase.typeMapping
+      eventId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}eventid']),
-      machineid: attachedDatabase.typeMapping
+      machineId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}machineid']),
       type: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}type']),
-      faultdescription: attachedDatabase.typeMapping.read(
+      faultDescription: attachedDatabase.typeMapping.read(
           DriftSqlType.string, data['${effectivePrefix}faultdescription']),
       date: attachedDatabase.typeMapping
           .read(timestampWithoutTimezoneType, data['${effectivePrefix}date']),
-      loggedby: attachedDatabase.typeMapping
+      loggedBy: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}loggedby']),
-      reportedby: attachedDatabase.typeMapping
+      reportedBy: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}reportedby']),
-      fixapplied: attachedDatabase.typeMapping
+      fixApplied: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}fixapplied']),
-      referencenumber: attachedDatabase.typeMapping
+      referenceNumber: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}referencenumber']),
       cost: attachedDatabase.typeMapping
           .read(numericType, data['${effectivePrefix}cost']),
-      inhouse: attachedDatabase.typeMapping
+      inHouse: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}inhouse']),
-      contactused: attachedDatabase.typeMapping
+      contactUsed: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}contactused']),
-      timefrom: attachedDatabase.typeMapping
+      timeFrom: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}timefrom']),
-      timeto: attachedDatabase.typeMapping
+      timeTo: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}timeto']),
       planned: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}planned']),
@@ -652,13 +652,13 @@ class $MaintenanceEventsTable extends MaintenanceEvents
           .read(DriftSqlType.string, data['${effectivePrefix}status']),
       technician: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}technician']),
-      datefrom: attachedDatabase.typeMapping.read(
+      dateFrom: attachedDatabase.typeMapping.read(
           timestampWithoutTimezoneType, data['${effectivePrefix}datefrom']),
-      dateto: attachedDatabase.typeMapping
+      dateTo: attachedDatabase.typeMapping
           .read(timestampWithoutTimezoneType, data['${effectivePrefix}dateto']),
-      logdate: attachedDatabase.typeMapping.read(
+      logDate: attachedDatabase.typeMapping.read(
           timestampWithoutTimezoneType, data['${effectivePrefix}logdate']),
-      schedeventid: attachedDatabase.typeMapping
+      schedEventId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}schedeventid']),
       downtime: attachedDatabase.typeMapping
           .read(numericType, data['${effectivePrefix}downtime']),
@@ -673,95 +673,95 @@ class $MaintenanceEventsTable extends MaintenanceEvents
 
 class MaintenanceEvent extends DataClass
     implements Insertable<MaintenanceEvent> {
-  final int? eventid;
-  final int? machineid;
+  final int? eventId;
+  final int? machineId;
   final String? type;
-  final String? faultdescription;
+  final String? faultDescription;
   final PgDateTime? date;
-  final String? loggedby;
-  final String? reportedby;
-  final String? fixapplied;
-  final String? referencenumber;
+  final String? loggedBy;
+  final String? reportedBy;
+  final String? fixApplied;
+  final String? referenceNumber;
   final double? cost;
-  final String? inhouse;
-  final String? contactused;
-  final String? timefrom;
-  final String? timeto;
+  final String? inHouse;
+  final String? contactUsed;
+  final String? timeFrom;
+  final String? timeTo;
   final String? planned;
   final String? status;
   final String? technician;
-  final PgDateTime? datefrom;
-  final PgDateTime? dateto;
-  final PgDateTime? logdate;
-  final int? schedeventid;
+  final PgDateTime? dateFrom;
+  final PgDateTime? dateTo;
+  final PgDateTime? logDate;
+  final int? schedEventId;
   final double? downtime;
   const MaintenanceEvent(
-      {this.eventid,
-      this.machineid,
+      {this.eventId,
+      this.machineId,
       this.type,
-      this.faultdescription,
+      this.faultDescription,
       this.date,
-      this.loggedby,
-      this.reportedby,
-      this.fixapplied,
-      this.referencenumber,
+      this.loggedBy,
+      this.reportedBy,
+      this.fixApplied,
+      this.referenceNumber,
       this.cost,
-      this.inhouse,
-      this.contactused,
-      this.timefrom,
-      this.timeto,
+      this.inHouse,
+      this.contactUsed,
+      this.timeFrom,
+      this.timeTo,
       this.planned,
       this.status,
       this.technician,
-      this.datefrom,
-      this.dateto,
-      this.logdate,
-      this.schedeventid,
+      this.dateFrom,
+      this.dateTo,
+      this.logDate,
+      this.schedEventId,
       this.downtime});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (!nullToAbsent || eventid != null) {
-      map['eventid'] = Variable<int>(eventid);
+    if (!nullToAbsent || eventId != null) {
+      map['eventid'] = Variable<int>(eventId);
     }
-    if (!nullToAbsent || machineid != null) {
-      map['machineid'] = Variable<int>(machineid);
+    if (!nullToAbsent || machineId != null) {
+      map['machineid'] = Variable<int>(machineId);
     }
     if (!nullToAbsent || type != null) {
       map['type'] = Variable<String>(type);
     }
-    if (!nullToAbsent || faultdescription != null) {
-      map['faultdescription'] = Variable<String>(faultdescription);
+    if (!nullToAbsent || faultDescription != null) {
+      map['faultdescription'] = Variable<String>(faultDescription);
     }
     if (!nullToAbsent || date != null) {
       map['date'] = Variable<PgDateTime>(date, timestampWithoutTimezoneType);
     }
-    if (!nullToAbsent || loggedby != null) {
-      map['loggedby'] = Variable<String>(loggedby);
+    if (!nullToAbsent || loggedBy != null) {
+      map['loggedby'] = Variable<String>(loggedBy);
     }
-    if (!nullToAbsent || reportedby != null) {
-      map['reportedby'] = Variable<String>(reportedby);
+    if (!nullToAbsent || reportedBy != null) {
+      map['reportedby'] = Variable<String>(reportedBy);
     }
-    if (!nullToAbsent || fixapplied != null) {
-      map['fixapplied'] = Variable<String>(fixapplied);
+    if (!nullToAbsent || fixApplied != null) {
+      map['fixapplied'] = Variable<String>(fixApplied);
     }
-    if (!nullToAbsent || referencenumber != null) {
-      map['referencenumber'] = Variable<String>(referencenumber);
+    if (!nullToAbsent || referenceNumber != null) {
+      map['referencenumber'] = Variable<String>(referenceNumber);
     }
     if (!nullToAbsent || cost != null) {
       map['cost'] = Variable<double>(cost, numericType);
     }
-    if (!nullToAbsent || inhouse != null) {
-      map['inhouse'] = Variable<String>(inhouse);
+    if (!nullToAbsent || inHouse != null) {
+      map['inhouse'] = Variable<String>(inHouse);
     }
-    if (!nullToAbsent || contactused != null) {
-      map['contactused'] = Variable<String>(contactused);
+    if (!nullToAbsent || contactUsed != null) {
+      map['contactused'] = Variable<String>(contactUsed);
     }
-    if (!nullToAbsent || timefrom != null) {
-      map['timefrom'] = Variable<String>(timefrom);
+    if (!nullToAbsent || timeFrom != null) {
+      map['timefrom'] = Variable<String>(timeFrom);
     }
-    if (!nullToAbsent || timeto != null) {
-      map['timeto'] = Variable<String>(timeto);
+    if (!nullToAbsent || timeTo != null) {
+      map['timeto'] = Variable<String>(timeTo);
     }
     if (!nullToAbsent || planned != null) {
       map['planned'] = Variable<String>(planned);
@@ -772,20 +772,20 @@ class MaintenanceEvent extends DataClass
     if (!nullToAbsent || technician != null) {
       map['technician'] = Variable<String>(technician);
     }
-    if (!nullToAbsent || datefrom != null) {
+    if (!nullToAbsent || dateFrom != null) {
       map['datefrom'] =
-          Variable<PgDateTime>(datefrom, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(dateFrom, timestampWithoutTimezoneType);
     }
-    if (!nullToAbsent || dateto != null) {
+    if (!nullToAbsent || dateTo != null) {
       map['dateto'] =
-          Variable<PgDateTime>(dateto, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(dateTo, timestampWithoutTimezoneType);
     }
-    if (!nullToAbsent || logdate != null) {
+    if (!nullToAbsent || logDate != null) {
       map['logdate'] =
-          Variable<PgDateTime>(logdate, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(logDate, timestampWithoutTimezoneType);
     }
-    if (!nullToAbsent || schedeventid != null) {
-      map['schedeventid'] = Variable<int>(schedeventid);
+    if (!nullToAbsent || schedEventId != null) {
+      map['schedeventid'] = Variable<int>(schedEventId);
     }
     if (!nullToAbsent || downtime != null) {
       map['downtime'] = Variable<double>(downtime, numericType);
@@ -795,41 +795,41 @@ class MaintenanceEvent extends DataClass
 
   MaintenanceEventsCompanion toCompanion(bool nullToAbsent) {
     return MaintenanceEventsCompanion(
-      eventid: eventid == null && nullToAbsent
+      eventId: eventId == null && nullToAbsent
           ? const Value.absent()
-          : Value(eventid),
-      machineid: machineid == null && nullToAbsent
+          : Value(eventId),
+      machineId: machineId == null && nullToAbsent
           ? const Value.absent()
-          : Value(machineid),
+          : Value(machineId),
       type: type == null && nullToAbsent ? const Value.absent() : Value(type),
-      faultdescription: faultdescription == null && nullToAbsent
+      faultDescription: faultDescription == null && nullToAbsent
           ? const Value.absent()
-          : Value(faultdescription),
+          : Value(faultDescription),
       date: date == null && nullToAbsent ? const Value.absent() : Value(date),
-      loggedby: loggedby == null && nullToAbsent
+      loggedBy: loggedBy == null && nullToAbsent
           ? const Value.absent()
-          : Value(loggedby),
-      reportedby: reportedby == null && nullToAbsent
+          : Value(loggedBy),
+      reportedBy: reportedBy == null && nullToAbsent
           ? const Value.absent()
-          : Value(reportedby),
-      fixapplied: fixapplied == null && nullToAbsent
+          : Value(reportedBy),
+      fixApplied: fixApplied == null && nullToAbsent
           ? const Value.absent()
-          : Value(fixapplied),
-      referencenumber: referencenumber == null && nullToAbsent
+          : Value(fixApplied),
+      referenceNumber: referenceNumber == null && nullToAbsent
           ? const Value.absent()
-          : Value(referencenumber),
+          : Value(referenceNumber),
       cost: cost == null && nullToAbsent ? const Value.absent() : Value(cost),
-      inhouse: inhouse == null && nullToAbsent
+      inHouse: inHouse == null && nullToAbsent
           ? const Value.absent()
-          : Value(inhouse),
-      contactused: contactused == null && nullToAbsent
+          : Value(inHouse),
+      contactUsed: contactUsed == null && nullToAbsent
           ? const Value.absent()
-          : Value(contactused),
-      timefrom: timefrom == null && nullToAbsent
+          : Value(contactUsed),
+      timeFrom: timeFrom == null && nullToAbsent
           ? const Value.absent()
-          : Value(timefrom),
-      timeto:
-          timeto == null && nullToAbsent ? const Value.absent() : Value(timeto),
+          : Value(timeFrom),
+      timeTo:
+          timeTo == null && nullToAbsent ? const Value.absent() : Value(timeTo),
       planned: planned == null && nullToAbsent
           ? const Value.absent()
           : Value(planned),
@@ -838,17 +838,17 @@ class MaintenanceEvent extends DataClass
       technician: technician == null && nullToAbsent
           ? const Value.absent()
           : Value(technician),
-      datefrom: datefrom == null && nullToAbsent
+      dateFrom: dateFrom == null && nullToAbsent
           ? const Value.absent()
-          : Value(datefrom),
-      dateto:
-          dateto == null && nullToAbsent ? const Value.absent() : Value(dateto),
-      logdate: logdate == null && nullToAbsent
+          : Value(dateFrom),
+      dateTo:
+          dateTo == null && nullToAbsent ? const Value.absent() : Value(dateTo),
+      logDate: logDate == null && nullToAbsent
           ? const Value.absent()
-          : Value(logdate),
-      schedeventid: schedeventid == null && nullToAbsent
+          : Value(logDate),
+      schedEventId: schedEventId == null && nullToAbsent
           ? const Value.absent()
-          : Value(schedeventid),
+          : Value(schedEventId),
       downtime: downtime == null && nullToAbsent
           ? const Value.absent()
           : Value(downtime),
@@ -859,27 +859,27 @@ class MaintenanceEvent extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return MaintenanceEvent(
-      eventid: serializer.fromJson<int?>(json['eventid']),
-      machineid: serializer.fromJson<int?>(json['machineid']),
+      eventId: serializer.fromJson<int?>(json['eventId']),
+      machineId: serializer.fromJson<int?>(json['machineId']),
       type: serializer.fromJson<String?>(json['type']),
-      faultdescription: serializer.fromJson<String?>(json['faultdescription']),
+      faultDescription: serializer.fromJson<String?>(json['faultDescription']),
       date: serializer.fromJson<PgDateTime?>(json['date']),
-      loggedby: serializer.fromJson<String?>(json['loggedby']),
-      reportedby: serializer.fromJson<String?>(json['reportedby']),
-      fixapplied: serializer.fromJson<String?>(json['fixapplied']),
-      referencenumber: serializer.fromJson<String?>(json['referencenumber']),
+      loggedBy: serializer.fromJson<String?>(json['loggedBy']),
+      reportedBy: serializer.fromJson<String?>(json['reportedBy']),
+      fixApplied: serializer.fromJson<String?>(json['fixApplied']),
+      referenceNumber: serializer.fromJson<String?>(json['referenceNumber']),
       cost: serializer.fromJson<double?>(json['cost']),
-      inhouse: serializer.fromJson<String?>(json['inhouse']),
-      contactused: serializer.fromJson<String?>(json['contactused']),
-      timefrom: serializer.fromJson<String?>(json['timefrom']),
-      timeto: serializer.fromJson<String?>(json['timeto']),
+      inHouse: serializer.fromJson<String?>(json['inHouse']),
+      contactUsed: serializer.fromJson<String?>(json['contactUsed']),
+      timeFrom: serializer.fromJson<String?>(json['timeFrom']),
+      timeTo: serializer.fromJson<String?>(json['timeTo']),
       planned: serializer.fromJson<String?>(json['planned']),
       status: serializer.fromJson<String?>(json['status']),
       technician: serializer.fromJson<String?>(json['technician']),
-      datefrom: serializer.fromJson<PgDateTime?>(json['datefrom']),
-      dateto: serializer.fromJson<PgDateTime?>(json['dateto']),
-      logdate: serializer.fromJson<PgDateTime?>(json['logdate']),
-      schedeventid: serializer.fromJson<int?>(json['schedeventid']),
+      dateFrom: serializer.fromJson<PgDateTime?>(json['dateFrom']),
+      dateTo: serializer.fromJson<PgDateTime?>(json['dateTo']),
+      logDate: serializer.fromJson<PgDateTime?>(json['logDate']),
+      schedEventId: serializer.fromJson<int?>(json['schedEventId']),
       downtime: serializer.fromJson<double?>(json['downtime']),
     );
   }
@@ -887,111 +887,111 @@ class MaintenanceEvent extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'eventid': serializer.toJson<int?>(eventid),
-      'machineid': serializer.toJson<int?>(machineid),
+      'eventId': serializer.toJson<int?>(eventId),
+      'machineId': serializer.toJson<int?>(machineId),
       'type': serializer.toJson<String?>(type),
-      'faultdescription': serializer.toJson<String?>(faultdescription),
+      'faultDescription': serializer.toJson<String?>(faultDescription),
       'date': serializer.toJson<PgDateTime?>(date),
-      'loggedby': serializer.toJson<String?>(loggedby),
-      'reportedby': serializer.toJson<String?>(reportedby),
-      'fixapplied': serializer.toJson<String?>(fixapplied),
-      'referencenumber': serializer.toJson<String?>(referencenumber),
+      'loggedBy': serializer.toJson<String?>(loggedBy),
+      'reportedBy': serializer.toJson<String?>(reportedBy),
+      'fixApplied': serializer.toJson<String?>(fixApplied),
+      'referenceNumber': serializer.toJson<String?>(referenceNumber),
       'cost': serializer.toJson<double?>(cost),
-      'inhouse': serializer.toJson<String?>(inhouse),
-      'contactused': serializer.toJson<String?>(contactused),
-      'timefrom': serializer.toJson<String?>(timefrom),
-      'timeto': serializer.toJson<String?>(timeto),
+      'inHouse': serializer.toJson<String?>(inHouse),
+      'contactUsed': serializer.toJson<String?>(contactUsed),
+      'timeFrom': serializer.toJson<String?>(timeFrom),
+      'timeTo': serializer.toJson<String?>(timeTo),
       'planned': serializer.toJson<String?>(planned),
       'status': serializer.toJson<String?>(status),
       'technician': serializer.toJson<String?>(technician),
-      'datefrom': serializer.toJson<PgDateTime?>(datefrom),
-      'dateto': serializer.toJson<PgDateTime?>(dateto),
-      'logdate': serializer.toJson<PgDateTime?>(logdate),
-      'schedeventid': serializer.toJson<int?>(schedeventid),
+      'dateFrom': serializer.toJson<PgDateTime?>(dateFrom),
+      'dateTo': serializer.toJson<PgDateTime?>(dateTo),
+      'logDate': serializer.toJson<PgDateTime?>(logDate),
+      'schedEventId': serializer.toJson<int?>(schedEventId),
       'downtime': serializer.toJson<double?>(downtime),
     };
   }
 
   MaintenanceEvent copyWith(
-          {int? eventid,
-          int? machineid,
+          {int? eventId,
+          int? machineId,
           String? type,
-          String? faultdescription,
+          String? faultDescription,
           PgDateTime? date,
-          String? loggedby,
-          String? reportedby,
-          String? fixapplied,
-          String? referencenumber,
+          String? loggedBy,
+          String? reportedBy,
+          String? fixApplied,
+          String? referenceNumber,
           double? cost,
-          String? inhouse,
-          String? contactused,
-          String? timefrom,
-          String? timeto,
+          String? inHouse,
+          String? contactUsed,
+          String? timeFrom,
+          String? timeTo,
           String? planned,
           String? status,
           String? technician,
-          PgDateTime? datefrom,
-          PgDateTime? dateto,
-          PgDateTime? logdate,
-          int? schedeventid,
+          PgDateTime? dateFrom,
+          PgDateTime? dateTo,
+          PgDateTime? logDate,
+          int? schedEventId,
           double? downtime}) =>
       MaintenanceEvent(
-        eventid: eventid ?? this.eventid,
-        machineid: machineid ?? this.machineid,
+        eventId: eventId ?? this.eventId,
+        machineId: machineId ?? this.machineId,
         type: type ?? this.type,
-        faultdescription: faultdescription ?? this.faultdescription,
+        faultDescription: faultDescription ?? this.faultDescription,
         date: date ?? this.date,
-        loggedby: loggedby ?? this.loggedby,
-        reportedby: reportedby ?? this.reportedby,
-        fixapplied: fixapplied ?? this.fixapplied,
-        referencenumber: referencenumber ?? this.referencenumber,
+        loggedBy: loggedBy ?? this.loggedBy,
+        reportedBy: reportedBy ?? this.reportedBy,
+        fixApplied: fixApplied ?? this.fixApplied,
+        referenceNumber: referenceNumber ?? this.referenceNumber,
         cost: cost ?? this.cost,
-        inhouse: inhouse ?? this.inhouse,
-        contactused: contactused ?? this.contactused,
-        timefrom: timefrom ?? this.timefrom,
-        timeto: timeto ?? this.timeto,
+        inHouse: inHouse ?? this.inHouse,
+        contactUsed: contactUsed ?? this.contactUsed,
+        timeFrom: timeFrom ?? this.timeFrom,
+        timeTo: timeTo ?? this.timeTo,
         planned: planned ?? this.planned,
         status: status ?? this.status,
         technician: technician ?? this.technician,
-        datefrom: datefrom ?? this.datefrom,
-        dateto: dateto ?? this.dateto,
-        logdate: logdate ?? this.logdate,
-        schedeventid: schedeventid ?? this.schedeventid,
+        dateFrom: dateFrom ?? this.dateFrom,
+        dateTo: dateTo ?? this.dateTo,
+        logDate: logDate ?? this.logDate,
+        schedEventId: schedEventId ?? this.schedEventId,
         downtime: downtime ?? this.downtime,
       );
   MaintenanceEvent copyWithCompanion(MaintenanceEventsCompanion data) {
     return MaintenanceEvent(
-      eventid: data.eventid.present ? data.eventid.value : this.eventid,
-      machineid: data.machineid.present ? data.machineid.value : this.machineid,
+      eventId: data.eventId.present ? data.eventId.value : this.eventId,
+      machineId: data.machineId.present ? data.machineId.value : this.machineId,
       type: data.type.present ? data.type.value : this.type,
-      faultdescription: data.faultdescription.present
-          ? data.faultdescription.value
-          : this.faultdescription,
+      faultDescription: data.faultDescription.present
+          ? data.faultDescription.value
+          : this.faultDescription,
       date: data.date.present ? data.date.value : this.date,
-      loggedby: data.loggedby.present ? data.loggedby.value : this.loggedby,
-      reportedby:
-          data.reportedby.present ? data.reportedby.value : this.reportedby,
-      fixapplied:
-          data.fixapplied.present ? data.fixapplied.value : this.fixapplied,
-      referencenumber: data.referencenumber.present
-          ? data.referencenumber.value
-          : this.referencenumber,
+      loggedBy: data.loggedBy.present ? data.loggedBy.value : this.loggedBy,
+      reportedBy:
+          data.reportedBy.present ? data.reportedBy.value : this.reportedBy,
+      fixApplied:
+          data.fixApplied.present ? data.fixApplied.value : this.fixApplied,
+      referenceNumber: data.referenceNumber.present
+          ? data.referenceNumber.value
+          : this.referenceNumber,
       cost: data.cost.present ? data.cost.value : this.cost,
-      inhouse: data.inhouse.present ? data.inhouse.value : this.inhouse,
-      contactused:
-          data.contactused.present ? data.contactused.value : this.contactused,
-      timefrom: data.timefrom.present ? data.timefrom.value : this.timefrom,
-      timeto: data.timeto.present ? data.timeto.value : this.timeto,
+      inHouse: data.inHouse.present ? data.inHouse.value : this.inHouse,
+      contactUsed:
+          data.contactUsed.present ? data.contactUsed.value : this.contactUsed,
+      timeFrom: data.timeFrom.present ? data.timeFrom.value : this.timeFrom,
+      timeTo: data.timeTo.present ? data.timeTo.value : this.timeTo,
       planned: data.planned.present ? data.planned.value : this.planned,
       status: data.status.present ? data.status.value : this.status,
       technician:
           data.technician.present ? data.technician.value : this.technician,
-      datefrom: data.datefrom.present ? data.datefrom.value : this.datefrom,
-      dateto: data.dateto.present ? data.dateto.value : this.dateto,
-      logdate: data.logdate.present ? data.logdate.value : this.logdate,
-      schedeventid: data.schedeventid.present
-          ? data.schedeventid.value
-          : this.schedeventid,
+      dateFrom: data.dateFrom.present ? data.dateFrom.value : this.dateFrom,
+      dateTo: data.dateTo.present ? data.dateTo.value : this.dateTo,
+      logDate: data.logDate.present ? data.logDate.value : this.logDate,
+      schedEventId: data.schedEventId.present
+          ? data.schedEventId.value
+          : this.schedEventId,
       downtime: data.downtime.present ? data.downtime.value : this.downtime,
     );
   }
@@ -999,27 +999,27 @@ class MaintenanceEvent extends DataClass
   @override
   String toString() {
     return (StringBuffer('MaintenanceEvent(')
-          ..write('eventid: $eventid, ')
-          ..write('machineid: $machineid, ')
+          ..write('eventId: $eventId, ')
+          ..write('machineId: $machineId, ')
           ..write('type: $type, ')
-          ..write('faultdescription: $faultdescription, ')
+          ..write('faultDescription: $faultDescription, ')
           ..write('date: $date, ')
-          ..write('loggedby: $loggedby, ')
-          ..write('reportedby: $reportedby, ')
-          ..write('fixapplied: $fixapplied, ')
-          ..write('referencenumber: $referencenumber, ')
+          ..write('loggedBy: $loggedBy, ')
+          ..write('reportedBy: $reportedBy, ')
+          ..write('fixApplied: $fixApplied, ')
+          ..write('referenceNumber: $referenceNumber, ')
           ..write('cost: $cost, ')
-          ..write('inhouse: $inhouse, ')
-          ..write('contactused: $contactused, ')
-          ..write('timefrom: $timefrom, ')
-          ..write('timeto: $timeto, ')
+          ..write('inHouse: $inHouse, ')
+          ..write('contactUsed: $contactUsed, ')
+          ..write('timeFrom: $timeFrom, ')
+          ..write('timeTo: $timeTo, ')
           ..write('planned: $planned, ')
           ..write('status: $status, ')
           ..write('technician: $technician, ')
-          ..write('datefrom: $datefrom, ')
-          ..write('dateto: $dateto, ')
-          ..write('logdate: $logdate, ')
-          ..write('schedeventid: $schedeventid, ')
+          ..write('dateFrom: $dateFrom, ')
+          ..write('dateTo: $dateTo, ')
+          ..write('logDate: $logDate, ')
+          ..write('schedEventId: $schedEventId, ')
           ..write('downtime: $downtime')
           ..write(')'))
         .toString();
@@ -1027,279 +1027,272 @@ class MaintenanceEvent extends DataClass
 
   @override
   int get hashCode => Object.hashAll([
-        eventid,
-        machineid,
+        eventId,
+        machineId,
         type,
-        faultdescription,
+        faultDescription,
         date,
-        loggedby,
-        reportedby,
-        fixapplied,
-        referencenumber,
+        loggedBy,
+        reportedBy,
+        fixApplied,
+        referenceNumber,
         cost,
-        inhouse,
-        contactused,
-        timefrom,
-        timeto,
+        inHouse,
+        contactUsed,
+        timeFrom,
+        timeTo,
         planned,
         status,
         technician,
-        datefrom,
-        dateto,
-        logdate,
-        schedeventid,
+        dateFrom,
+        dateTo,
+        logDate,
+        schedEventId,
         downtime
       ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is MaintenanceEvent &&
-          other.eventid == this.eventid &&
-          other.machineid == this.machineid &&
+          other.eventId == this.eventId &&
+          other.machineId == this.machineId &&
           other.type == this.type &&
-          other.faultdescription == this.faultdescription &&
+          other.faultDescription == this.faultDescription &&
           other.date == this.date &&
-          other.loggedby == this.loggedby &&
-          other.reportedby == this.reportedby &&
-          other.fixapplied == this.fixapplied &&
-          other.referencenumber == this.referencenumber &&
+          other.loggedBy == this.loggedBy &&
+          other.reportedBy == this.reportedBy &&
+          other.fixApplied == this.fixApplied &&
+          other.referenceNumber == this.referenceNumber &&
           other.cost == this.cost &&
-          other.inhouse == this.inhouse &&
-          other.contactused == this.contactused &&
-          other.timefrom == this.timefrom &&
-          other.timeto == this.timeto &&
+          other.inHouse == this.inHouse &&
+          other.contactUsed == this.contactUsed &&
+          other.timeFrom == this.timeFrom &&
+          other.timeTo == this.timeTo &&
           other.planned == this.planned &&
           other.status == this.status &&
           other.technician == this.technician &&
-          other.datefrom == this.datefrom &&
-          other.dateto == this.dateto &&
-          other.logdate == this.logdate &&
-          other.schedeventid == this.schedeventid &&
+          other.dateFrom == this.dateFrom &&
+          other.dateTo == this.dateTo &&
+          other.logDate == this.logDate &&
+          other.schedEventId == this.schedEventId &&
           other.downtime == this.downtime);
 }
 
 class MaintenanceEventsCompanion extends UpdateCompanion<MaintenanceEvent> {
-  final Value<int?> eventid;
-  final Value<int?> machineid;
+  final Value<int?> eventId;
+  final Value<int?> machineId;
   final Value<String?> type;
-  final Value<String?> faultdescription;
+  final Value<String?> faultDescription;
   final Value<PgDateTime?> date;
-  final Value<String?> loggedby;
-  final Value<String?> reportedby;
-  final Value<String?> fixapplied;
-  final Value<String?> referencenumber;
+  final Value<String?> loggedBy;
+  final Value<String?> reportedBy;
+  final Value<String?> fixApplied;
+  final Value<String?> referenceNumber;
   final Value<double?> cost;
-  final Value<String?> inhouse;
-  final Value<String?> contactused;
-  final Value<String?> timefrom;
-  final Value<String?> timeto;
+  final Value<String?> inHouse;
+  final Value<String?> contactUsed;
+  final Value<String?> timeFrom;
+  final Value<String?> timeTo;
   final Value<String?> planned;
   final Value<String?> status;
   final Value<String?> technician;
-  final Value<PgDateTime?> datefrom;
-  final Value<PgDateTime?> dateto;
-  final Value<PgDateTime?> logdate;
-  final Value<int?> schedeventid;
+  final Value<PgDateTime?> dateFrom;
+  final Value<PgDateTime?> dateTo;
+  final Value<PgDateTime?> logDate;
+  final Value<int?> schedEventId;
   final Value<double?> downtime;
-  final Value<int> rowid;
   const MaintenanceEventsCompanion({
-    this.eventid = const Value.absent(),
-    this.machineid = const Value.absent(),
+    this.eventId = const Value.absent(),
+    this.machineId = const Value.absent(),
     this.type = const Value.absent(),
-    this.faultdescription = const Value.absent(),
+    this.faultDescription = const Value.absent(),
     this.date = const Value.absent(),
-    this.loggedby = const Value.absent(),
-    this.reportedby = const Value.absent(),
-    this.fixapplied = const Value.absent(),
-    this.referencenumber = const Value.absent(),
+    this.loggedBy = const Value.absent(),
+    this.reportedBy = const Value.absent(),
+    this.fixApplied = const Value.absent(),
+    this.referenceNumber = const Value.absent(),
     this.cost = const Value.absent(),
-    this.inhouse = const Value.absent(),
-    this.contactused = const Value.absent(),
-    this.timefrom = const Value.absent(),
-    this.timeto = const Value.absent(),
+    this.inHouse = const Value.absent(),
+    this.contactUsed = const Value.absent(),
+    this.timeFrom = const Value.absent(),
+    this.timeTo = const Value.absent(),
     this.planned = const Value.absent(),
     this.status = const Value.absent(),
     this.technician = const Value.absent(),
-    this.datefrom = const Value.absent(),
-    this.dateto = const Value.absent(),
-    this.logdate = const Value.absent(),
-    this.schedeventid = const Value.absent(),
+    this.dateFrom = const Value.absent(),
+    this.dateTo = const Value.absent(),
+    this.logDate = const Value.absent(),
+    this.schedEventId = const Value.absent(),
     this.downtime = const Value.absent(),
-    this.rowid = const Value.absent(),
   });
   MaintenanceEventsCompanion.insert({
-    this.eventid = const Value.absent(),
-    this.machineid = const Value.absent(),
+    this.eventId = const Value.absent(),
+    this.machineId = const Value.absent(),
     this.type = const Value.absent(),
-    this.faultdescription = const Value.absent(),
+    this.faultDescription = const Value.absent(),
     this.date = const Value.absent(),
-    this.loggedby = const Value.absent(),
-    this.reportedby = const Value.absent(),
-    this.fixapplied = const Value.absent(),
-    this.referencenumber = const Value.absent(),
+    this.loggedBy = const Value.absent(),
+    this.reportedBy = const Value.absent(),
+    this.fixApplied = const Value.absent(),
+    this.referenceNumber = const Value.absent(),
     this.cost = const Value.absent(),
-    this.inhouse = const Value.absent(),
-    this.contactused = const Value.absent(),
-    this.timefrom = const Value.absent(),
-    this.timeto = const Value.absent(),
+    this.inHouse = const Value.absent(),
+    this.contactUsed = const Value.absent(),
+    this.timeFrom = const Value.absent(),
+    this.timeTo = const Value.absent(),
     this.planned = const Value.absent(),
     this.status = const Value.absent(),
     this.technician = const Value.absent(),
-    this.datefrom = const Value.absent(),
-    this.dateto = const Value.absent(),
-    this.logdate = const Value.absent(),
-    this.schedeventid = const Value.absent(),
+    this.dateFrom = const Value.absent(),
+    this.dateTo = const Value.absent(),
+    this.logDate = const Value.absent(),
+    this.schedEventId = const Value.absent(),
     this.downtime = const Value.absent(),
-    this.rowid = const Value.absent(),
   });
   static Insertable<MaintenanceEvent> custom({
-    Expression<int>? eventid,
-    Expression<int>? machineid,
+    Expression<int>? eventId,
+    Expression<int>? machineId,
     Expression<String>? type,
-    Expression<String>? faultdescription,
+    Expression<String>? faultDescription,
     Expression<PgDateTime>? date,
-    Expression<String>? loggedby,
-    Expression<String>? reportedby,
-    Expression<String>? fixapplied,
-    Expression<String>? referencenumber,
+    Expression<String>? loggedBy,
+    Expression<String>? reportedBy,
+    Expression<String>? fixApplied,
+    Expression<String>? referenceNumber,
     Expression<double>? cost,
-    Expression<String>? inhouse,
-    Expression<String>? contactused,
-    Expression<String>? timefrom,
-    Expression<String>? timeto,
+    Expression<String>? inHouse,
+    Expression<String>? contactUsed,
+    Expression<String>? timeFrom,
+    Expression<String>? timeTo,
     Expression<String>? planned,
     Expression<String>? status,
     Expression<String>? technician,
-    Expression<PgDateTime>? datefrom,
-    Expression<PgDateTime>? dateto,
-    Expression<PgDateTime>? logdate,
-    Expression<int>? schedeventid,
+    Expression<PgDateTime>? dateFrom,
+    Expression<PgDateTime>? dateTo,
+    Expression<PgDateTime>? logDate,
+    Expression<int>? schedEventId,
     Expression<double>? downtime,
-    Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
-      if (eventid != null) 'eventid': eventid,
-      if (machineid != null) 'machineid': machineid,
+      if (eventId != null) 'eventid': eventId,
+      if (machineId != null) 'machineid': machineId,
       if (type != null) 'type': type,
-      if (faultdescription != null) 'faultdescription': faultdescription,
+      if (faultDescription != null) 'faultdescription': faultDescription,
       if (date != null) 'date': date,
-      if (loggedby != null) 'loggedby': loggedby,
-      if (reportedby != null) 'reportedby': reportedby,
-      if (fixapplied != null) 'fixapplied': fixapplied,
-      if (referencenumber != null) 'referencenumber': referencenumber,
+      if (loggedBy != null) 'loggedby': loggedBy,
+      if (reportedBy != null) 'reportedby': reportedBy,
+      if (fixApplied != null) 'fixapplied': fixApplied,
+      if (referenceNumber != null) 'referencenumber': referenceNumber,
       if (cost != null) 'cost': cost,
-      if (inhouse != null) 'inhouse': inhouse,
-      if (contactused != null) 'contactused': contactused,
-      if (timefrom != null) 'timefrom': timefrom,
-      if (timeto != null) 'timeto': timeto,
+      if (inHouse != null) 'inhouse': inHouse,
+      if (contactUsed != null) 'contactused': contactUsed,
+      if (timeFrom != null) 'timefrom': timeFrom,
+      if (timeTo != null) 'timeto': timeTo,
       if (planned != null) 'planned': planned,
       if (status != null) 'status': status,
       if (technician != null) 'technician': technician,
-      if (datefrom != null) 'datefrom': datefrom,
-      if (dateto != null) 'dateto': dateto,
-      if (logdate != null) 'logdate': logdate,
-      if (schedeventid != null) 'schedeventid': schedeventid,
+      if (dateFrom != null) 'datefrom': dateFrom,
+      if (dateTo != null) 'dateto': dateTo,
+      if (logDate != null) 'logdate': logDate,
+      if (schedEventId != null) 'schedeventid': schedEventId,
       if (downtime != null) 'downtime': downtime,
-      if (rowid != null) 'rowid': rowid,
     });
   }
 
   MaintenanceEventsCompanion copyWith(
-      {Value<int?>? eventid,
-      Value<int?>? machineid,
+      {Value<int?>? eventId,
+      Value<int?>? machineId,
       Value<String?>? type,
-      Value<String?>? faultdescription,
+      Value<String?>? faultDescription,
       Value<PgDateTime?>? date,
-      Value<String?>? loggedby,
-      Value<String?>? reportedby,
-      Value<String?>? fixapplied,
-      Value<String?>? referencenumber,
+      Value<String?>? loggedBy,
+      Value<String?>? reportedBy,
+      Value<String?>? fixApplied,
+      Value<String?>? referenceNumber,
       Value<double?>? cost,
-      Value<String?>? inhouse,
-      Value<String?>? contactused,
-      Value<String?>? timefrom,
-      Value<String?>? timeto,
+      Value<String?>? inHouse,
+      Value<String?>? contactUsed,
+      Value<String?>? timeFrom,
+      Value<String?>? timeTo,
       Value<String?>? planned,
       Value<String?>? status,
       Value<String?>? technician,
-      Value<PgDateTime?>? datefrom,
-      Value<PgDateTime?>? dateto,
-      Value<PgDateTime?>? logdate,
-      Value<int?>? schedeventid,
-      Value<double?>? downtime,
-      Value<int>? rowid}) {
+      Value<PgDateTime?>? dateFrom,
+      Value<PgDateTime?>? dateTo,
+      Value<PgDateTime?>? logDate,
+      Value<int?>? schedEventId,
+      Value<double?>? downtime}) {
     return MaintenanceEventsCompanion(
-      eventid: eventid ?? this.eventid,
-      machineid: machineid ?? this.machineid,
+      eventId: eventId ?? this.eventId,
+      machineId: machineId ?? this.machineId,
       type: type ?? this.type,
-      faultdescription: faultdescription ?? this.faultdescription,
+      faultDescription: faultDescription ?? this.faultDescription,
       date: date ?? this.date,
-      loggedby: loggedby ?? this.loggedby,
-      reportedby: reportedby ?? this.reportedby,
-      fixapplied: fixapplied ?? this.fixapplied,
-      referencenumber: referencenumber ?? this.referencenumber,
+      loggedBy: loggedBy ?? this.loggedBy,
+      reportedBy: reportedBy ?? this.reportedBy,
+      fixApplied: fixApplied ?? this.fixApplied,
+      referenceNumber: referenceNumber ?? this.referenceNumber,
       cost: cost ?? this.cost,
-      inhouse: inhouse ?? this.inhouse,
-      contactused: contactused ?? this.contactused,
-      timefrom: timefrom ?? this.timefrom,
-      timeto: timeto ?? this.timeto,
+      inHouse: inHouse ?? this.inHouse,
+      contactUsed: contactUsed ?? this.contactUsed,
+      timeFrom: timeFrom ?? this.timeFrom,
+      timeTo: timeTo ?? this.timeTo,
       planned: planned ?? this.planned,
       status: status ?? this.status,
       technician: technician ?? this.technician,
-      datefrom: datefrom ?? this.datefrom,
-      dateto: dateto ?? this.dateto,
-      logdate: logdate ?? this.logdate,
-      schedeventid: schedeventid ?? this.schedeventid,
+      dateFrom: dateFrom ?? this.dateFrom,
+      dateTo: dateTo ?? this.dateTo,
+      logDate: logDate ?? this.logDate,
+      schedEventId: schedEventId ?? this.schedEventId,
       downtime: downtime ?? this.downtime,
-      rowid: rowid ?? this.rowid,
     );
   }
 
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (eventid.present) {
-      map['eventid'] = Variable<int>(eventid.value);
+    if (eventId.present) {
+      map['eventid'] = Variable<int>(eventId.value);
     }
-    if (machineid.present) {
-      map['machineid'] = Variable<int>(machineid.value);
+    if (machineId.present) {
+      map['machineid'] = Variable<int>(machineId.value);
     }
     if (type.present) {
       map['type'] = Variable<String>(type.value);
     }
-    if (faultdescription.present) {
-      map['faultdescription'] = Variable<String>(faultdescription.value);
+    if (faultDescription.present) {
+      map['faultdescription'] = Variable<String>(faultDescription.value);
     }
     if (date.present) {
       map['date'] =
           Variable<PgDateTime>(date.value, timestampWithoutTimezoneType);
     }
-    if (loggedby.present) {
-      map['loggedby'] = Variable<String>(loggedby.value);
+    if (loggedBy.present) {
+      map['loggedby'] = Variable<String>(loggedBy.value);
     }
-    if (reportedby.present) {
-      map['reportedby'] = Variable<String>(reportedby.value);
+    if (reportedBy.present) {
+      map['reportedby'] = Variable<String>(reportedBy.value);
     }
-    if (fixapplied.present) {
-      map['fixapplied'] = Variable<String>(fixapplied.value);
+    if (fixApplied.present) {
+      map['fixapplied'] = Variable<String>(fixApplied.value);
     }
-    if (referencenumber.present) {
-      map['referencenumber'] = Variable<String>(referencenumber.value);
+    if (referenceNumber.present) {
+      map['referencenumber'] = Variable<String>(referenceNumber.value);
     }
     if (cost.present) {
       map['cost'] = Variable<double>(cost.value, numericType);
     }
-    if (inhouse.present) {
-      map['inhouse'] = Variable<String>(inhouse.value);
+    if (inHouse.present) {
+      map['inhouse'] = Variable<String>(inHouse.value);
     }
-    if (contactused.present) {
-      map['contactused'] = Variable<String>(contactused.value);
+    if (contactUsed.present) {
+      map['contactused'] = Variable<String>(contactUsed.value);
     }
-    if (timefrom.present) {
-      map['timefrom'] = Variable<String>(timefrom.value);
+    if (timeFrom.present) {
+      map['timefrom'] = Variable<String>(timeFrom.value);
     }
-    if (timeto.present) {
-      map['timeto'] = Variable<String>(timeto.value);
+    if (timeTo.present) {
+      map['timeto'] = Variable<String>(timeTo.value);
     }
     if (planned.present) {
       map['planned'] = Variable<String>(planned.value);
@@ -1310,26 +1303,23 @@ class MaintenanceEventsCompanion extends UpdateCompanion<MaintenanceEvent> {
     if (technician.present) {
       map['technician'] = Variable<String>(technician.value);
     }
-    if (datefrom.present) {
+    if (dateFrom.present) {
       map['datefrom'] =
-          Variable<PgDateTime>(datefrom.value, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(dateFrom.value, timestampWithoutTimezoneType);
     }
-    if (dateto.present) {
+    if (dateTo.present) {
       map['dateto'] =
-          Variable<PgDateTime>(dateto.value, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(dateTo.value, timestampWithoutTimezoneType);
     }
-    if (logdate.present) {
+    if (logDate.present) {
       map['logdate'] =
-          Variable<PgDateTime>(logdate.value, timestampWithoutTimezoneType);
+          Variable<PgDateTime>(logDate.value, timestampWithoutTimezoneType);
     }
-    if (schedeventid.present) {
-      map['schedeventid'] = Variable<int>(schedeventid.value);
+    if (schedEventId.present) {
+      map['schedeventid'] = Variable<int>(schedEventId.value);
     }
     if (downtime.present) {
       map['downtime'] = Variable<double>(downtime.value, numericType);
-    }
-    if (rowid.present) {
-      map['rowid'] = Variable<int>(rowid.value);
     }
     return map;
   }
@@ -1337,29 +1327,1024 @@ class MaintenanceEventsCompanion extends UpdateCompanion<MaintenanceEvent> {
   @override
   String toString() {
     return (StringBuffer('MaintenanceEventsCompanion(')
-          ..write('eventid: $eventid, ')
-          ..write('machineid: $machineid, ')
+          ..write('eventId: $eventId, ')
+          ..write('machineId: $machineId, ')
           ..write('type: $type, ')
-          ..write('faultdescription: $faultdescription, ')
+          ..write('faultDescription: $faultDescription, ')
           ..write('date: $date, ')
-          ..write('loggedby: $loggedby, ')
-          ..write('reportedby: $reportedby, ')
-          ..write('fixapplied: $fixapplied, ')
-          ..write('referencenumber: $referencenumber, ')
+          ..write('loggedBy: $loggedBy, ')
+          ..write('reportedBy: $reportedBy, ')
+          ..write('fixApplied: $fixApplied, ')
+          ..write('referenceNumber: $referenceNumber, ')
           ..write('cost: $cost, ')
-          ..write('inhouse: $inhouse, ')
-          ..write('contactused: $contactused, ')
-          ..write('timefrom: $timefrom, ')
-          ..write('timeto: $timeto, ')
+          ..write('inHouse: $inHouse, ')
+          ..write('contactUsed: $contactUsed, ')
+          ..write('timeFrom: $timeFrom, ')
+          ..write('timeTo: $timeTo, ')
           ..write('planned: $planned, ')
           ..write('status: $status, ')
           ..write('technician: $technician, ')
-          ..write('datefrom: $datefrom, ')
-          ..write('dateto: $dateto, ')
-          ..write('logdate: $logdate, ')
-          ..write('schedeventid: $schedeventid, ')
-          ..write('downtime: $downtime, ')
-          ..write('rowid: $rowid')
+          ..write('dateFrom: $dateFrom, ')
+          ..write('dateTo: $dateTo, ')
+          ..write('logDate: $logDate, ')
+          ..write('schedEventId: $schedEventId, ')
+          ..write('downtime: $downtime')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MaintenenceContactsTable extends MaintenenceContacts
+    with TableInfo<$MaintenenceContactsTable, MaintenenceContact> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MaintenenceContactsTable(this.attachedDatabase, [this._alias]);
+  @override
+  late final GeneratedColumn<int> contactId = GeneratedColumn<int>(
+      'contactid', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<int> machineId = GeneratedColumn<int>(
+      'machineid', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> contactPerson = GeneratedColumn<String>(
+      'contactperson', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> contactNumber = GeneratedColumn<String>(
+      'contactnumber', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> alternativeNumber =
+      GeneratedColumn<String>('alternativenumber', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> emailAddress = GeneratedColumn<String>(
+      'emailadress', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> servicesProvides = GeneratedColumn<String>(
+      'servicesprovides', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> companyName = GeneratedColumn<String>(
+      'companyname', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        contactId,
+        machineId,
+        contactPerson,
+        contactNumber,
+        alternativeNumber,
+        emailAddress,
+        servicesProvides,
+        companyName
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'maintenencecontactsa';
+  @override
+  Set<GeneratedColumn> get $primaryKey => {contactId};
+  @override
+  MaintenenceContact map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MaintenenceContact(
+      contactId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}contactid']),
+      machineId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}machineid']),
+      contactPerson: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}contactperson']),
+      contactNumber: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}contactnumber']),
+      alternativeNumber: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}alternativenumber']),
+      emailAddress: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}emailadress']),
+      servicesProvides: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}servicesprovides']),
+      companyName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}companyname']),
+    );
+  }
+
+  @override
+  $MaintenenceContactsTable createAlias(String alias) {
+    return $MaintenenceContactsTable(attachedDatabase, alias);
+  }
+}
+
+class MaintenenceContact extends DataClass
+    implements Insertable<MaintenenceContact> {
+  final int? contactId;
+  final int? machineId;
+  final String? contactPerson;
+  final String? contactNumber;
+  final String? alternativeNumber;
+  final String? emailAddress;
+  final String? servicesProvides;
+  final String? companyName;
+  const MaintenenceContact(
+      {this.contactId,
+      this.machineId,
+      this.contactPerson,
+      this.contactNumber,
+      this.alternativeNumber,
+      this.emailAddress,
+      this.servicesProvides,
+      this.companyName});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || contactId != null) {
+      map['contactid'] = Variable<int>(contactId);
+    }
+    if (!nullToAbsent || machineId != null) {
+      map['machineid'] = Variable<int>(machineId);
+    }
+    if (!nullToAbsent || contactPerson != null) {
+      map['contactperson'] = Variable<String>(contactPerson);
+    }
+    if (!nullToAbsent || contactNumber != null) {
+      map['contactnumber'] = Variable<String>(contactNumber);
+    }
+    if (!nullToAbsent || alternativeNumber != null) {
+      map['alternativenumber'] = Variable<String>(alternativeNumber);
+    }
+    if (!nullToAbsent || emailAddress != null) {
+      map['emailadress'] = Variable<String>(emailAddress);
+    }
+    if (!nullToAbsent || servicesProvides != null) {
+      map['servicesprovides'] = Variable<String>(servicesProvides);
+    }
+    if (!nullToAbsent || companyName != null) {
+      map['companyname'] = Variable<String>(companyName);
+    }
+    return map;
+  }
+
+  MaintenenceContactsCompanion toCompanion(bool nullToAbsent) {
+    return MaintenenceContactsCompanion(
+      contactId: contactId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contactId),
+      machineId: machineId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(machineId),
+      contactPerson: contactPerson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contactPerson),
+      contactNumber: contactNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contactNumber),
+      alternativeNumber: alternativeNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(alternativeNumber),
+      emailAddress: emailAddress == null && nullToAbsent
+          ? const Value.absent()
+          : Value(emailAddress),
+      servicesProvides: servicesProvides == null && nullToAbsent
+          ? const Value.absent()
+          : Value(servicesProvides),
+      companyName: companyName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(companyName),
+    );
+  }
+
+  factory MaintenenceContact.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MaintenenceContact(
+      contactId: serializer.fromJson<int?>(json['contactId']),
+      machineId: serializer.fromJson<int?>(json['machineId']),
+      contactPerson: serializer.fromJson<String?>(json['contactPerson']),
+      contactNumber: serializer.fromJson<String?>(json['contactNumber']),
+      alternativeNumber:
+          serializer.fromJson<String?>(json['alternativeNumber']),
+      emailAddress: serializer.fromJson<String?>(json['emailAddress']),
+      servicesProvides: serializer.fromJson<String?>(json['servicesProvides']),
+      companyName: serializer.fromJson<String?>(json['companyName']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'contactId': serializer.toJson<int?>(contactId),
+      'machineId': serializer.toJson<int?>(machineId),
+      'contactPerson': serializer.toJson<String?>(contactPerson),
+      'contactNumber': serializer.toJson<String?>(contactNumber),
+      'alternativeNumber': serializer.toJson<String?>(alternativeNumber),
+      'emailAddress': serializer.toJson<String?>(emailAddress),
+      'servicesProvides': serializer.toJson<String?>(servicesProvides),
+      'companyName': serializer.toJson<String?>(companyName),
+    };
+  }
+
+  MaintenenceContact copyWith(
+          {int? contactId,
+          int? machineId,
+          String? contactPerson,
+          String? contactNumber,
+          String? alternativeNumber,
+          String? emailAddress,
+          String? servicesProvides,
+          String? companyName}) =>
+      MaintenenceContact(
+        contactId: contactId ?? this.contactId,
+        machineId: machineId ?? this.machineId,
+        contactPerson: contactPerson ?? this.contactPerson,
+        contactNumber: contactNumber ?? this.contactNumber,
+        alternativeNumber: alternativeNumber ?? this.alternativeNumber,
+        emailAddress: emailAddress ?? this.emailAddress,
+        servicesProvides: servicesProvides ?? this.servicesProvides,
+        companyName: companyName ?? this.companyName,
+      );
+  MaintenenceContact copyWithCompanion(MaintenenceContactsCompanion data) {
+    return MaintenenceContact(
+      contactId: data.contactId.present ? data.contactId.value : this.contactId,
+      machineId: data.machineId.present ? data.machineId.value : this.machineId,
+      contactPerson: data.contactPerson.present
+          ? data.contactPerson.value
+          : this.contactPerson,
+      contactNumber: data.contactNumber.present
+          ? data.contactNumber.value
+          : this.contactNumber,
+      alternativeNumber: data.alternativeNumber.present
+          ? data.alternativeNumber.value
+          : this.alternativeNumber,
+      emailAddress: data.emailAddress.present
+          ? data.emailAddress.value
+          : this.emailAddress,
+      servicesProvides: data.servicesProvides.present
+          ? data.servicesProvides.value
+          : this.servicesProvides,
+      companyName:
+          data.companyName.present ? data.companyName.value : this.companyName,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceContact(')
+          ..write('contactId: $contactId, ')
+          ..write('machineId: $machineId, ')
+          ..write('contactPerson: $contactPerson, ')
+          ..write('contactNumber: $contactNumber, ')
+          ..write('alternativeNumber: $alternativeNumber, ')
+          ..write('emailAddress: $emailAddress, ')
+          ..write('servicesProvides: $servicesProvides, ')
+          ..write('companyName: $companyName')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      contactId,
+      machineId,
+      contactPerson,
+      contactNumber,
+      alternativeNumber,
+      emailAddress,
+      servicesProvides,
+      companyName);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MaintenenceContact &&
+          other.contactId == this.contactId &&
+          other.machineId == this.machineId &&
+          other.contactPerson == this.contactPerson &&
+          other.contactNumber == this.contactNumber &&
+          other.alternativeNumber == this.alternativeNumber &&
+          other.emailAddress == this.emailAddress &&
+          other.servicesProvides == this.servicesProvides &&
+          other.companyName == this.companyName);
+}
+
+class MaintenenceContactsCompanion extends UpdateCompanion<MaintenenceContact> {
+  final Value<int?> contactId;
+  final Value<int?> machineId;
+  final Value<String?> contactPerson;
+  final Value<String?> contactNumber;
+  final Value<String?> alternativeNumber;
+  final Value<String?> emailAddress;
+  final Value<String?> servicesProvides;
+  final Value<String?> companyName;
+  const MaintenenceContactsCompanion({
+    this.contactId = const Value.absent(),
+    this.machineId = const Value.absent(),
+    this.contactPerson = const Value.absent(),
+    this.contactNumber = const Value.absent(),
+    this.alternativeNumber = const Value.absent(),
+    this.emailAddress = const Value.absent(),
+    this.servicesProvides = const Value.absent(),
+    this.companyName = const Value.absent(),
+  });
+  MaintenenceContactsCompanion.insert({
+    this.contactId = const Value.absent(),
+    this.machineId = const Value.absent(),
+    this.contactPerson = const Value.absent(),
+    this.contactNumber = const Value.absent(),
+    this.alternativeNumber = const Value.absent(),
+    this.emailAddress = const Value.absent(),
+    this.servicesProvides = const Value.absent(),
+    this.companyName = const Value.absent(),
+  });
+  static Insertable<MaintenenceContact> custom({
+    Expression<int>? contactId,
+    Expression<int>? machineId,
+    Expression<String>? contactPerson,
+    Expression<String>? contactNumber,
+    Expression<String>? alternativeNumber,
+    Expression<String>? emailAddress,
+    Expression<String>? servicesProvides,
+    Expression<String>? companyName,
+  }) {
+    return RawValuesInsertable({
+      if (contactId != null) 'contactid': contactId,
+      if (machineId != null) 'machineid': machineId,
+      if (contactPerson != null) 'contactperson': contactPerson,
+      if (contactNumber != null) 'contactnumber': contactNumber,
+      if (alternativeNumber != null) 'alternativenumber': alternativeNumber,
+      if (emailAddress != null) 'emailadress': emailAddress,
+      if (servicesProvides != null) 'servicesprovides': servicesProvides,
+      if (companyName != null) 'companyname': companyName,
+    });
+  }
+
+  MaintenenceContactsCompanion copyWith(
+      {Value<int?>? contactId,
+      Value<int?>? machineId,
+      Value<String?>? contactPerson,
+      Value<String?>? contactNumber,
+      Value<String?>? alternativeNumber,
+      Value<String?>? emailAddress,
+      Value<String?>? servicesProvides,
+      Value<String?>? companyName}) {
+    return MaintenenceContactsCompanion(
+      contactId: contactId ?? this.contactId,
+      machineId: machineId ?? this.machineId,
+      contactPerson: contactPerson ?? this.contactPerson,
+      contactNumber: contactNumber ?? this.contactNumber,
+      alternativeNumber: alternativeNumber ?? this.alternativeNumber,
+      emailAddress: emailAddress ?? this.emailAddress,
+      servicesProvides: servicesProvides ?? this.servicesProvides,
+      companyName: companyName ?? this.companyName,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (contactId.present) {
+      map['contactid'] = Variable<int>(contactId.value);
+    }
+    if (machineId.present) {
+      map['machineid'] = Variable<int>(machineId.value);
+    }
+    if (contactPerson.present) {
+      map['contactperson'] = Variable<String>(contactPerson.value);
+    }
+    if (contactNumber.present) {
+      map['contactnumber'] = Variable<String>(contactNumber.value);
+    }
+    if (alternativeNumber.present) {
+      map['alternativenumber'] = Variable<String>(alternativeNumber.value);
+    }
+    if (emailAddress.present) {
+      map['emailadress'] = Variable<String>(emailAddress.value);
+    }
+    if (servicesProvides.present) {
+      map['servicesprovides'] = Variable<String>(servicesProvides.value);
+    }
+    if (companyName.present) {
+      map['companyname'] = Variable<String>(companyName.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceContactsCompanion(')
+          ..write('contactId: $contactId, ')
+          ..write('machineId: $machineId, ')
+          ..write('contactPerson: $contactPerson, ')
+          ..write('contactNumber: $contactNumber, ')
+          ..write('alternativeNumber: $alternativeNumber, ')
+          ..write('emailAddress: $emailAddress, ')
+          ..write('servicesProvides: $servicesProvides, ')
+          ..write('companyName: $companyName')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MaintenenceItemsTable extends MaintenenceItems
+    with TableInfo<$MaintenenceItemsTable, MaintenenceItem> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MaintenenceItemsTable(this.attachedDatabase, [this._alias]);
+  @override
+  late final GeneratedColumn<int> idColumn = GeneratedColumn<int>(
+      'id_column', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> machine = GeneratedColumn<String>(
+      'machine', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+      'description', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+      'category', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> serial = GeneratedColumn<String>(
+      'serial', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [idColumn, machine, description, category, serial];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'maintenenceitemsa';
+  @override
+  Set<GeneratedColumn> get $primaryKey => {idColumn};
+  @override
+  MaintenenceItem map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MaintenenceItem(
+      idColumn: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id_column']),
+      machine: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}machine']),
+      description: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}description']),
+      category: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}category']),
+      serial: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}serial']),
+    );
+  }
+
+  @override
+  $MaintenenceItemsTable createAlias(String alias) {
+    return $MaintenenceItemsTable(attachedDatabase, alias);
+  }
+}
+
+class MaintenenceItem extends DataClass implements Insertable<MaintenenceItem> {
+  final int? idColumn;
+  final String? machine;
+  final String? description;
+  final String? category;
+  final String? serial;
+  const MaintenenceItem(
+      {this.idColumn,
+      this.machine,
+      this.description,
+      this.category,
+      this.serial});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || idColumn != null) {
+      map['id_column'] = Variable<int>(idColumn);
+    }
+    if (!nullToAbsent || machine != null) {
+      map['machine'] = Variable<String>(machine);
+    }
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || category != null) {
+      map['category'] = Variable<String>(category);
+    }
+    if (!nullToAbsent || serial != null) {
+      map['serial'] = Variable<String>(serial);
+    }
+    return map;
+  }
+
+  MaintenenceItemsCompanion toCompanion(bool nullToAbsent) {
+    return MaintenenceItemsCompanion(
+      idColumn: idColumn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(idColumn),
+      machine: machine == null && nullToAbsent
+          ? const Value.absent()
+          : Value(machine),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      category: category == null && nullToAbsent
+          ? const Value.absent()
+          : Value(category),
+      serial:
+          serial == null && nullToAbsent ? const Value.absent() : Value(serial),
+    );
+  }
+
+  factory MaintenenceItem.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MaintenenceItem(
+      idColumn: serializer.fromJson<int?>(json['idColumn']),
+      machine: serializer.fromJson<String?>(json['machine']),
+      description: serializer.fromJson<String?>(json['description']),
+      category: serializer.fromJson<String?>(json['category']),
+      serial: serializer.fromJson<String?>(json['serial']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'idColumn': serializer.toJson<int?>(idColumn),
+      'machine': serializer.toJson<String?>(machine),
+      'description': serializer.toJson<String?>(description),
+      'category': serializer.toJson<String?>(category),
+      'serial': serializer.toJson<String?>(serial),
+    };
+  }
+
+  MaintenenceItem copyWith(
+          {int? idColumn,
+          String? machine,
+          String? description,
+          String? category,
+          String? serial}) =>
+      MaintenenceItem(
+        idColumn: idColumn ?? this.idColumn,
+        machine: machine ?? this.machine,
+        description: description ?? this.description,
+        category: category ?? this.category,
+        serial: serial ?? this.serial,
+      );
+  MaintenenceItem copyWithCompanion(MaintenenceItemsCompanion data) {
+    return MaintenenceItem(
+      idColumn: data.idColumn.present ? data.idColumn.value : this.idColumn,
+      machine: data.machine.present ? data.machine.value : this.machine,
+      description:
+          data.description.present ? data.description.value : this.description,
+      category: data.category.present ? data.category.value : this.category,
+      serial: data.serial.present ? data.serial.value : this.serial,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceItem(')
+          ..write('idColumn: $idColumn, ')
+          ..write('machine: $machine, ')
+          ..write('description: $description, ')
+          ..write('category: $category, ')
+          ..write('serial: $serial')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(idColumn, machine, description, category, serial);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MaintenenceItem &&
+          other.idColumn == this.idColumn &&
+          other.machine == this.machine &&
+          other.description == this.description &&
+          other.category == this.category &&
+          other.serial == this.serial);
+}
+
+class MaintenenceItemsCompanion extends UpdateCompanion<MaintenenceItem> {
+  final Value<int?> idColumn;
+  final Value<String?> machine;
+  final Value<String?> description;
+  final Value<String?> category;
+  final Value<String?> serial;
+  const MaintenenceItemsCompanion({
+    this.idColumn = const Value.absent(),
+    this.machine = const Value.absent(),
+    this.description = const Value.absent(),
+    this.category = const Value.absent(),
+    this.serial = const Value.absent(),
+  });
+  MaintenenceItemsCompanion.insert({
+    this.idColumn = const Value.absent(),
+    this.machine = const Value.absent(),
+    this.description = const Value.absent(),
+    this.category = const Value.absent(),
+    this.serial = const Value.absent(),
+  });
+  static Insertable<MaintenenceItem> custom({
+    Expression<int>? idColumn,
+    Expression<String>? machine,
+    Expression<String>? description,
+    Expression<String>? category,
+    Expression<String>? serial,
+  }) {
+    return RawValuesInsertable({
+      if (idColumn != null) 'id_column': idColumn,
+      if (machine != null) 'machine': machine,
+      if (description != null) 'description': description,
+      if (category != null) 'category': category,
+      if (serial != null) 'serial': serial,
+    });
+  }
+
+  MaintenenceItemsCompanion copyWith(
+      {Value<int?>? idColumn,
+      Value<String?>? machine,
+      Value<String?>? description,
+      Value<String?>? category,
+      Value<String?>? serial}) {
+    return MaintenenceItemsCompanion(
+      idColumn: idColumn ?? this.idColumn,
+      machine: machine ?? this.machine,
+      description: description ?? this.description,
+      category: category ?? this.category,
+      serial: serial ?? this.serial,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (idColumn.present) {
+      map['id_column'] = Variable<int>(idColumn.value);
+    }
+    if (machine.present) {
+      map['machine'] = Variable<String>(machine.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (serial.present) {
+      map['serial'] = Variable<String>(serial.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceItemsCompanion(')
+          ..write('idColumn: $idColumn, ')
+          ..write('machine: $machine, ')
+          ..write('description: $description, ')
+          ..write('category: $category, ')
+          ..write('serial: $serial')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MaintenenceSchedTasksTable extends MaintenenceSchedTasks
+    with TableInfo<$MaintenenceSchedTasksTable, MaintenenceSchedTask> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MaintenenceSchedTasksTable(this.attachedDatabase, [this._alias]);
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<int> machineId = GeneratedColumn<int>(
+      'machineid', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> task = GeneratedColumn<String>(
+      'task', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<double> frequency = GeneratedColumn<double>(
+      'frequency', aliasedName, true,
+      type: numericType, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<DateTime> dstartDate = GeneratedColumn<DateTime>(
+      'startdate', aliasedName, true,
+      type: dateType, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+      'createdby', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  late final GeneratedColumn<String> frequencyUnit = GeneratedColumn<String>(
+      'frequencyunit', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, machineId, task, frequency, dstartDate, createdBy, frequencyUnit];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'maintenenceitemsa';
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MaintenenceSchedTask map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MaintenenceSchedTask(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id']),
+      machineId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}machineid']),
+      task: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}task']),
+      frequency: attachedDatabase.typeMapping
+          .read(numericType, data['${effectivePrefix}frequency']),
+      dstartDate: attachedDatabase.typeMapping
+          .read(dateType, data['${effectivePrefix}startdate']),
+      createdBy: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}createdby']),
+      frequencyUnit: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}frequencyunit']),
+    );
+  }
+
+  @override
+  $MaintenenceSchedTasksTable createAlias(String alias) {
+    return $MaintenenceSchedTasksTable(attachedDatabase, alias);
+  }
+}
+
+class MaintenenceSchedTask extends DataClass
+    implements Insertable<MaintenenceSchedTask> {
+  final int? id;
+  final int? machineId;
+  final String? task;
+  final double? frequency;
+  final DateTime? dstartDate;
+  final String? createdBy;
+  final String? frequencyUnit;
+  const MaintenenceSchedTask(
+      {this.id,
+      this.machineId,
+      this.task,
+      this.frequency,
+      this.dstartDate,
+      this.createdBy,
+      this.frequencyUnit});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (!nullToAbsent || id != null) {
+      map['id'] = Variable<int>(id);
+    }
+    if (!nullToAbsent || machineId != null) {
+      map['machineid'] = Variable<int>(machineId);
+    }
+    if (!nullToAbsent || task != null) {
+      map['task'] = Variable<String>(task);
+    }
+    if (!nullToAbsent || frequency != null) {
+      map['frequency'] = Variable<double>(frequency, numericType);
+    }
+    if (!nullToAbsent || dstartDate != null) {
+      map['startdate'] = Variable<DateTime>(dstartDate, dateType);
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['createdby'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || frequencyUnit != null) {
+      map['frequencyunit'] = Variable<String>(frequencyUnit);
+    }
+    return map;
+  }
+
+  MaintenenceSchedTasksCompanion toCompanion(bool nullToAbsent) {
+    return MaintenenceSchedTasksCompanion(
+      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
+      machineId: machineId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(machineId),
+      task: task == null && nullToAbsent ? const Value.absent() : Value(task),
+      frequency: frequency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(frequency),
+      dstartDate: dstartDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(dstartDate),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      frequencyUnit: frequencyUnit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(frequencyUnit),
+    );
+  }
+
+  factory MaintenenceSchedTask.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MaintenenceSchedTask(
+      id: serializer.fromJson<int?>(json['id']),
+      machineId: serializer.fromJson<int?>(json['machineId']),
+      task: serializer.fromJson<String?>(json['task']),
+      frequency: serializer.fromJson<double?>(json['frequency']),
+      dstartDate: serializer.fromJson<DateTime?>(json['dstartDate']),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      frequencyUnit: serializer.fromJson<String?>(json['frequencyUnit']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int?>(id),
+      'machineId': serializer.toJson<int?>(machineId),
+      'task': serializer.toJson<String?>(task),
+      'frequency': serializer.toJson<double?>(frequency),
+      'dstartDate': serializer.toJson<DateTime?>(dstartDate),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'frequencyUnit': serializer.toJson<String?>(frequencyUnit),
+    };
+  }
+
+  MaintenenceSchedTask copyWith(
+          {int? id,
+          int? machineId,
+          String? task,
+          double? frequency,
+          DateTime? dstartDate,
+          String? createdBy,
+          String? frequencyUnit}) =>
+      MaintenenceSchedTask(
+        id: id ?? this.id,
+        machineId: machineId ?? this.machineId,
+        task: task ?? this.task,
+        frequency: frequency ?? this.frequency,
+        dstartDate: dstartDate ?? this.dstartDate,
+        createdBy: createdBy ?? this.createdBy,
+        frequencyUnit: frequencyUnit ?? this.frequencyUnit,
+      );
+  MaintenenceSchedTask copyWithCompanion(MaintenenceSchedTasksCompanion data) {
+    return MaintenenceSchedTask(
+      id: data.id.present ? data.id.value : this.id,
+      machineId: data.machineId.present ? data.machineId.value : this.machineId,
+      task: data.task.present ? data.task.value : this.task,
+      frequency: data.frequency.present ? data.frequency.value : this.frequency,
+      dstartDate:
+          data.dstartDate.present ? data.dstartDate.value : this.dstartDate,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      frequencyUnit: data.frequencyUnit.present
+          ? data.frequencyUnit.value
+          : this.frequencyUnit,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceSchedTask(')
+          ..write('id: $id, ')
+          ..write('machineId: $machineId, ')
+          ..write('task: $task, ')
+          ..write('frequency: $frequency, ')
+          ..write('dstartDate: $dstartDate, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('frequencyUnit: $frequencyUnit')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id, machineId, task, frequency, dstartDate, createdBy, frequencyUnit);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MaintenenceSchedTask &&
+          other.id == this.id &&
+          other.machineId == this.machineId &&
+          other.task == this.task &&
+          other.frequency == this.frequency &&
+          other.dstartDate == this.dstartDate &&
+          other.createdBy == this.createdBy &&
+          other.frequencyUnit == this.frequencyUnit);
+}
+
+class MaintenenceSchedTasksCompanion
+    extends UpdateCompanion<MaintenenceSchedTask> {
+  final Value<int?> id;
+  final Value<int?> machineId;
+  final Value<String?> task;
+  final Value<double?> frequency;
+  final Value<DateTime?> dstartDate;
+  final Value<String?> createdBy;
+  final Value<String?> frequencyUnit;
+  const MaintenenceSchedTasksCompanion({
+    this.id = const Value.absent(),
+    this.machineId = const Value.absent(),
+    this.task = const Value.absent(),
+    this.frequency = const Value.absent(),
+    this.dstartDate = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.frequencyUnit = const Value.absent(),
+  });
+  MaintenenceSchedTasksCompanion.insert({
+    this.id = const Value.absent(),
+    this.machineId = const Value.absent(),
+    this.task = const Value.absent(),
+    this.frequency = const Value.absent(),
+    this.dstartDate = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.frequencyUnit = const Value.absent(),
+  });
+  static Insertable<MaintenenceSchedTask> custom({
+    Expression<int>? id,
+    Expression<int>? machineId,
+    Expression<String>? task,
+    Expression<double>? frequency,
+    Expression<DateTime>? dstartDate,
+    Expression<String>? createdBy,
+    Expression<String>? frequencyUnit,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (machineId != null) 'machineid': machineId,
+      if (task != null) 'task': task,
+      if (frequency != null) 'frequency': frequency,
+      if (dstartDate != null) 'startdate': dstartDate,
+      if (createdBy != null) 'createdby': createdBy,
+      if (frequencyUnit != null) 'frequencyunit': frequencyUnit,
+    });
+  }
+
+  MaintenenceSchedTasksCompanion copyWith(
+      {Value<int?>? id,
+      Value<int?>? machineId,
+      Value<String?>? task,
+      Value<double?>? frequency,
+      Value<DateTime?>? dstartDate,
+      Value<String?>? createdBy,
+      Value<String?>? frequencyUnit}) {
+    return MaintenenceSchedTasksCompanion(
+      id: id ?? this.id,
+      machineId: machineId ?? this.machineId,
+      task: task ?? this.task,
+      frequency: frequency ?? this.frequency,
+      dstartDate: dstartDate ?? this.dstartDate,
+      createdBy: createdBy ?? this.createdBy,
+      frequencyUnit: frequencyUnit ?? this.frequencyUnit,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (machineId.present) {
+      map['machineid'] = Variable<int>(machineId.value);
+    }
+    if (task.present) {
+      map['task'] = Variable<String>(task.value);
+    }
+    if (frequency.present) {
+      map['frequency'] = Variable<double>(frequency.value, numericType);
+    }
+    if (dstartDate.present) {
+      map['startdate'] = Variable<DateTime>(dstartDate.value, dateType);
+    }
+    if (createdBy.present) {
+      map['createdby'] = Variable<String>(createdBy.value);
+    }
+    if (frequencyUnit.present) {
+      map['frequencyunit'] = Variable<String>(frequencyUnit.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MaintenenceSchedTasksCompanion(')
+          ..write('id: $id, ')
+          ..write('machineId: $machineId, ')
+          ..write('task: $task, ')
+          ..write('frequency: $frequency, ')
+          ..write('dstartDate: $dstartDate, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('frequencyUnit: $frequencyUnit')
           ..write(')'))
         .toString();
   }
@@ -1373,14 +2358,25 @@ abstract class _$CertusInvisionDatabase extends GeneratedDatabase {
       $DriftDatabaseTypesTable(this);
   late final $MaintenanceEventsTable maintenanceEvents =
       $MaintenanceEventsTable(this);
+  late final $MaintenenceContactsTable maintenenceContacts =
+      $MaintenenceContactsTable(this);
+  late final $MaintenenceItemsTable maintenenceItems =
+      $MaintenenceItemsTable(this);
+  late final $MaintenenceSchedTasksTable maintenenceSchedTasks =
+      $MaintenenceSchedTasksTable(this);
   late final CertusInvisionDao certusInvisionDao =
       CertusInvisionDao(this as CertusInvisionDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities =>
-      [driftDatabaseTypes, maintenanceEvents];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+        driftDatabaseTypes,
+        maintenanceEvents,
+        maintenenceContacts,
+        maintenenceItems,
+        maintenenceSchedTasks
+      ];
   @override
   DriftDatabaseOptions get options =>
       const DriftDatabaseOptions(storeDateTimeAsText: true);
@@ -1636,55 +2632,53 @@ typedef $$DriftDatabaseTypesTableProcessedTableManager = ProcessedTableManager<
     PrefetchHooks Function()>;
 typedef $$MaintenanceEventsTableCreateCompanionBuilder
     = MaintenanceEventsCompanion Function({
-  Value<int?> eventid,
-  Value<int?> machineid,
+  Value<int?> eventId,
+  Value<int?> machineId,
   Value<String?> type,
-  Value<String?> faultdescription,
+  Value<String?> faultDescription,
   Value<PgDateTime?> date,
-  Value<String?> loggedby,
-  Value<String?> reportedby,
-  Value<String?> fixapplied,
-  Value<String?> referencenumber,
+  Value<String?> loggedBy,
+  Value<String?> reportedBy,
+  Value<String?> fixApplied,
+  Value<String?> referenceNumber,
   Value<double?> cost,
-  Value<String?> inhouse,
-  Value<String?> contactused,
-  Value<String?> timefrom,
-  Value<String?> timeto,
+  Value<String?> inHouse,
+  Value<String?> contactUsed,
+  Value<String?> timeFrom,
+  Value<String?> timeTo,
   Value<String?> planned,
   Value<String?> status,
   Value<String?> technician,
-  Value<PgDateTime?> datefrom,
-  Value<PgDateTime?> dateto,
-  Value<PgDateTime?> logdate,
-  Value<int?> schedeventid,
+  Value<PgDateTime?> dateFrom,
+  Value<PgDateTime?> dateTo,
+  Value<PgDateTime?> logDate,
+  Value<int?> schedEventId,
   Value<double?> downtime,
-  Value<int> rowid,
 });
 typedef $$MaintenanceEventsTableUpdateCompanionBuilder
     = MaintenanceEventsCompanion Function({
-  Value<int?> eventid,
-  Value<int?> machineid,
+  Value<int?> eventId,
+  Value<int?> machineId,
   Value<String?> type,
-  Value<String?> faultdescription,
+  Value<String?> faultDescription,
   Value<PgDateTime?> date,
-  Value<String?> loggedby,
-  Value<String?> reportedby,
-  Value<String?> fixapplied,
-  Value<String?> referencenumber,
+  Value<String?> loggedBy,
+  Value<String?> reportedBy,
+  Value<String?> fixApplied,
+  Value<String?> referenceNumber,
   Value<double?> cost,
-  Value<String?> inhouse,
-  Value<String?> contactused,
-  Value<String?> timefrom,
-  Value<String?> timeto,
+  Value<String?> inHouse,
+  Value<String?> contactUsed,
+  Value<String?> timeFrom,
+  Value<String?> timeTo,
   Value<String?> planned,
   Value<String?> status,
   Value<String?> technician,
-  Value<PgDateTime?> datefrom,
-  Value<PgDateTime?> dateto,
-  Value<PgDateTime?> logdate,
-  Value<int?> schedeventid,
+  Value<PgDateTime?> dateFrom,
+  Value<PgDateTime?> dateTo,
+  Value<PgDateTime?> logDate,
+  Value<int?> schedEventId,
   Value<double?> downtime,
-  Value<int> rowid,
 });
 
 class $$MaintenanceEventsTableFilterComposer
@@ -1696,49 +2690,49 @@ class $$MaintenanceEventsTableFilterComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnFilters<int> get eventid => $composableBuilder(
-      column: $table.eventid, builder: (column) => ColumnFilters(column));
+  ColumnFilters<int> get eventId => $composableBuilder(
+      column: $table.eventId, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get machineid => $composableBuilder(
-      column: $table.machineid, builder: (column) => ColumnFilters(column));
+  ColumnFilters<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<String> get type => $composableBuilder(
       column: $table.type, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get faultdescription => $composableBuilder(
-      column: $table.faultdescription,
+  ColumnFilters<String> get faultDescription => $composableBuilder(
+      column: $table.faultDescription,
       builder: (column) => ColumnFilters(column));
 
   ColumnFilters<PgDateTime> get date => $composableBuilder(
       column: $table.date, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get loggedby => $composableBuilder(
-      column: $table.loggedby, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get loggedBy => $composableBuilder(
+      column: $table.loggedBy, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get reportedby => $composableBuilder(
-      column: $table.reportedby, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get reportedBy => $composableBuilder(
+      column: $table.reportedBy, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get fixapplied => $composableBuilder(
-      column: $table.fixapplied, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get fixApplied => $composableBuilder(
+      column: $table.fixApplied, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get referencenumber => $composableBuilder(
-      column: $table.referencenumber,
+  ColumnFilters<String> get referenceNumber => $composableBuilder(
+      column: $table.referenceNumber,
       builder: (column) => ColumnFilters(column));
 
   ColumnFilters<double> get cost => $composableBuilder(
       column: $table.cost, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get inhouse => $composableBuilder(
-      column: $table.inhouse, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get inHouse => $composableBuilder(
+      column: $table.inHouse, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get contactused => $composableBuilder(
-      column: $table.contactused, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get contactUsed => $composableBuilder(
+      column: $table.contactUsed, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get timefrom => $composableBuilder(
-      column: $table.timefrom, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get timeFrom => $composableBuilder(
+      column: $table.timeFrom, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get timeto => $composableBuilder(
-      column: $table.timeto, builder: (column) => ColumnFilters(column));
+  ColumnFilters<String> get timeTo => $composableBuilder(
+      column: $table.timeTo, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<String> get planned => $composableBuilder(
       column: $table.planned, builder: (column) => ColumnFilters(column));
@@ -1749,17 +2743,17 @@ class $$MaintenanceEventsTableFilterComposer
   ColumnFilters<String> get technician => $composableBuilder(
       column: $table.technician, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<PgDateTime> get datefrom => $composableBuilder(
-      column: $table.datefrom, builder: (column) => ColumnFilters(column));
+  ColumnFilters<PgDateTime> get dateFrom => $composableBuilder(
+      column: $table.dateFrom, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<PgDateTime> get dateto => $composableBuilder(
-      column: $table.dateto, builder: (column) => ColumnFilters(column));
+  ColumnFilters<PgDateTime> get dateTo => $composableBuilder(
+      column: $table.dateTo, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<PgDateTime> get logdate => $composableBuilder(
-      column: $table.logdate, builder: (column) => ColumnFilters(column));
+  ColumnFilters<PgDateTime> get logDate => $composableBuilder(
+      column: $table.logDate, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<int> get schedeventid => $composableBuilder(
-      column: $table.schedeventid, builder: (column) => ColumnFilters(column));
+  ColumnFilters<int> get schedEventId => $composableBuilder(
+      column: $table.schedEventId, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<double> get downtime => $composableBuilder(
       column: $table.downtime, builder: (column) => ColumnFilters(column));
@@ -1774,49 +2768,49 @@ class $$MaintenanceEventsTableOrderingComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnOrderings<int> get eventid => $composableBuilder(
-      column: $table.eventid, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<int> get eventId => $composableBuilder(
+      column: $table.eventId, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get machineid => $composableBuilder(
-      column: $table.machineid, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<String> get type => $composableBuilder(
       column: $table.type, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get faultdescription => $composableBuilder(
-      column: $table.faultdescription,
+  ColumnOrderings<String> get faultDescription => $composableBuilder(
+      column: $table.faultDescription,
       builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<PgDateTime> get date => $composableBuilder(
       column: $table.date, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get loggedby => $composableBuilder(
-      column: $table.loggedby, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get loggedBy => $composableBuilder(
+      column: $table.loggedBy, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get reportedby => $composableBuilder(
-      column: $table.reportedby, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get reportedBy => $composableBuilder(
+      column: $table.reportedBy, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get fixapplied => $composableBuilder(
-      column: $table.fixapplied, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get fixApplied => $composableBuilder(
+      column: $table.fixApplied, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get referencenumber => $composableBuilder(
-      column: $table.referencenumber,
+  ColumnOrderings<String> get referenceNumber => $composableBuilder(
+      column: $table.referenceNumber,
       builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<double> get cost => $composableBuilder(
       column: $table.cost, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get inhouse => $composableBuilder(
-      column: $table.inhouse, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get inHouse => $composableBuilder(
+      column: $table.inHouse, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get contactused => $composableBuilder(
-      column: $table.contactused, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get contactUsed => $composableBuilder(
+      column: $table.contactUsed, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get timefrom => $composableBuilder(
-      column: $table.timefrom, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get timeFrom => $composableBuilder(
+      column: $table.timeFrom, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get timeto => $composableBuilder(
-      column: $table.timeto, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<String> get timeTo => $composableBuilder(
+      column: $table.timeTo, builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<String> get planned => $composableBuilder(
       column: $table.planned, builder: (column) => ColumnOrderings(column));
@@ -1827,17 +2821,17 @@ class $$MaintenanceEventsTableOrderingComposer
   ColumnOrderings<String> get technician => $composableBuilder(
       column: $table.technician, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<PgDateTime> get datefrom => $composableBuilder(
-      column: $table.datefrom, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<PgDateTime> get dateFrom => $composableBuilder(
+      column: $table.dateFrom, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<PgDateTime> get dateto => $composableBuilder(
-      column: $table.dateto, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<PgDateTime> get dateTo => $composableBuilder(
+      column: $table.dateTo, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<PgDateTime> get logdate => $composableBuilder(
-      column: $table.logdate, builder: (column) => ColumnOrderings(column));
+  ColumnOrderings<PgDateTime> get logDate => $composableBuilder(
+      column: $table.logDate, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get schedeventid => $composableBuilder(
-      column: $table.schedeventid,
+  ColumnOrderings<int> get schedEventId => $composableBuilder(
+      column: $table.schedEventId,
       builder: (column) => ColumnOrderings(column));
 
   ColumnOrderings<double> get downtime => $composableBuilder(
@@ -1853,47 +2847,47 @@ class $$MaintenanceEventsTableAnnotationComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  GeneratedColumn<int> get eventid =>
-      $composableBuilder(column: $table.eventid, builder: (column) => column);
+  GeneratedColumn<int> get eventId =>
+      $composableBuilder(column: $table.eventId, builder: (column) => column);
 
-  GeneratedColumn<int> get machineid =>
-      $composableBuilder(column: $table.machineid, builder: (column) => column);
+  GeneratedColumn<int> get machineId =>
+      $composableBuilder(column: $table.machineId, builder: (column) => column);
 
   GeneratedColumn<String> get type =>
       $composableBuilder(column: $table.type, builder: (column) => column);
 
-  GeneratedColumn<String> get faultdescription => $composableBuilder(
-      column: $table.faultdescription, builder: (column) => column);
+  GeneratedColumn<String> get faultDescription => $composableBuilder(
+      column: $table.faultDescription, builder: (column) => column);
 
   GeneratedColumn<PgDateTime> get date =>
       $composableBuilder(column: $table.date, builder: (column) => column);
 
-  GeneratedColumn<String> get loggedby =>
-      $composableBuilder(column: $table.loggedby, builder: (column) => column);
+  GeneratedColumn<String> get loggedBy =>
+      $composableBuilder(column: $table.loggedBy, builder: (column) => column);
 
-  GeneratedColumn<String> get reportedby => $composableBuilder(
-      column: $table.reportedby, builder: (column) => column);
+  GeneratedColumn<String> get reportedBy => $composableBuilder(
+      column: $table.reportedBy, builder: (column) => column);
 
-  GeneratedColumn<String> get fixapplied => $composableBuilder(
-      column: $table.fixapplied, builder: (column) => column);
+  GeneratedColumn<String> get fixApplied => $composableBuilder(
+      column: $table.fixApplied, builder: (column) => column);
 
-  GeneratedColumn<String> get referencenumber => $composableBuilder(
-      column: $table.referencenumber, builder: (column) => column);
+  GeneratedColumn<String> get referenceNumber => $composableBuilder(
+      column: $table.referenceNumber, builder: (column) => column);
 
   GeneratedColumn<double> get cost =>
       $composableBuilder(column: $table.cost, builder: (column) => column);
 
-  GeneratedColumn<String> get inhouse =>
-      $composableBuilder(column: $table.inhouse, builder: (column) => column);
+  GeneratedColumn<String> get inHouse =>
+      $composableBuilder(column: $table.inHouse, builder: (column) => column);
 
-  GeneratedColumn<String> get contactused => $composableBuilder(
-      column: $table.contactused, builder: (column) => column);
+  GeneratedColumn<String> get contactUsed => $composableBuilder(
+      column: $table.contactUsed, builder: (column) => column);
 
-  GeneratedColumn<String> get timefrom =>
-      $composableBuilder(column: $table.timefrom, builder: (column) => column);
+  GeneratedColumn<String> get timeFrom =>
+      $composableBuilder(column: $table.timeFrom, builder: (column) => column);
 
-  GeneratedColumn<String> get timeto =>
-      $composableBuilder(column: $table.timeto, builder: (column) => column);
+  GeneratedColumn<String> get timeTo =>
+      $composableBuilder(column: $table.timeTo, builder: (column) => column);
 
   GeneratedColumn<String> get planned =>
       $composableBuilder(column: $table.planned, builder: (column) => column);
@@ -1904,17 +2898,17 @@ class $$MaintenanceEventsTableAnnotationComposer
   GeneratedColumn<String> get technician => $composableBuilder(
       column: $table.technician, builder: (column) => column);
 
-  GeneratedColumn<PgDateTime> get datefrom =>
-      $composableBuilder(column: $table.datefrom, builder: (column) => column);
+  GeneratedColumn<PgDateTime> get dateFrom =>
+      $composableBuilder(column: $table.dateFrom, builder: (column) => column);
 
-  GeneratedColumn<PgDateTime> get dateto =>
-      $composableBuilder(column: $table.dateto, builder: (column) => column);
+  GeneratedColumn<PgDateTime> get dateTo =>
+      $composableBuilder(column: $table.dateTo, builder: (column) => column);
 
-  GeneratedColumn<PgDateTime> get logdate =>
-      $composableBuilder(column: $table.logdate, builder: (column) => column);
+  GeneratedColumn<PgDateTime> get logDate =>
+      $composableBuilder(column: $table.logDate, builder: (column) => column);
 
-  GeneratedColumn<int> get schedeventid => $composableBuilder(
-      column: $table.schedeventid, builder: (column) => column);
+  GeneratedColumn<int> get schedEventId => $composableBuilder(
+      column: $table.schedEventId, builder: (column) => column);
 
   GeneratedColumn<double> get downtime =>
       $composableBuilder(column: $table.downtime, builder: (column) => column);
@@ -1949,104 +2943,100 @@ class $$MaintenanceEventsTableTableManager extends RootTableManager<
               $$MaintenanceEventsTableAnnotationComposer(
                   $db: db, $table: table),
           updateCompanionCallback: ({
-            Value<int?> eventid = const Value.absent(),
-            Value<int?> machineid = const Value.absent(),
+            Value<int?> eventId = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
             Value<String?> type = const Value.absent(),
-            Value<String?> faultdescription = const Value.absent(),
+            Value<String?> faultDescription = const Value.absent(),
             Value<PgDateTime?> date = const Value.absent(),
-            Value<String?> loggedby = const Value.absent(),
-            Value<String?> reportedby = const Value.absent(),
-            Value<String?> fixapplied = const Value.absent(),
-            Value<String?> referencenumber = const Value.absent(),
+            Value<String?> loggedBy = const Value.absent(),
+            Value<String?> reportedBy = const Value.absent(),
+            Value<String?> fixApplied = const Value.absent(),
+            Value<String?> referenceNumber = const Value.absent(),
             Value<double?> cost = const Value.absent(),
-            Value<String?> inhouse = const Value.absent(),
-            Value<String?> contactused = const Value.absent(),
-            Value<String?> timefrom = const Value.absent(),
-            Value<String?> timeto = const Value.absent(),
+            Value<String?> inHouse = const Value.absent(),
+            Value<String?> contactUsed = const Value.absent(),
+            Value<String?> timeFrom = const Value.absent(),
+            Value<String?> timeTo = const Value.absent(),
             Value<String?> planned = const Value.absent(),
             Value<String?> status = const Value.absent(),
             Value<String?> technician = const Value.absent(),
-            Value<PgDateTime?> datefrom = const Value.absent(),
-            Value<PgDateTime?> dateto = const Value.absent(),
-            Value<PgDateTime?> logdate = const Value.absent(),
-            Value<int?> schedeventid = const Value.absent(),
+            Value<PgDateTime?> dateFrom = const Value.absent(),
+            Value<PgDateTime?> dateTo = const Value.absent(),
+            Value<PgDateTime?> logDate = const Value.absent(),
+            Value<int?> schedEventId = const Value.absent(),
             Value<double?> downtime = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
           }) =>
               MaintenanceEventsCompanion(
-            eventid: eventid,
-            machineid: machineid,
+            eventId: eventId,
+            machineId: machineId,
             type: type,
-            faultdescription: faultdescription,
+            faultDescription: faultDescription,
             date: date,
-            loggedby: loggedby,
-            reportedby: reportedby,
-            fixapplied: fixapplied,
-            referencenumber: referencenumber,
+            loggedBy: loggedBy,
+            reportedBy: reportedBy,
+            fixApplied: fixApplied,
+            referenceNumber: referenceNumber,
             cost: cost,
-            inhouse: inhouse,
-            contactused: contactused,
-            timefrom: timefrom,
-            timeto: timeto,
+            inHouse: inHouse,
+            contactUsed: contactUsed,
+            timeFrom: timeFrom,
+            timeTo: timeTo,
             planned: planned,
             status: status,
             technician: technician,
-            datefrom: datefrom,
-            dateto: dateto,
-            logdate: logdate,
-            schedeventid: schedeventid,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            logDate: logDate,
+            schedEventId: schedEventId,
             downtime: downtime,
-            rowid: rowid,
           ),
           createCompanionCallback: ({
-            Value<int?> eventid = const Value.absent(),
-            Value<int?> machineid = const Value.absent(),
+            Value<int?> eventId = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
             Value<String?> type = const Value.absent(),
-            Value<String?> faultdescription = const Value.absent(),
+            Value<String?> faultDescription = const Value.absent(),
             Value<PgDateTime?> date = const Value.absent(),
-            Value<String?> loggedby = const Value.absent(),
-            Value<String?> reportedby = const Value.absent(),
-            Value<String?> fixapplied = const Value.absent(),
-            Value<String?> referencenumber = const Value.absent(),
+            Value<String?> loggedBy = const Value.absent(),
+            Value<String?> reportedBy = const Value.absent(),
+            Value<String?> fixApplied = const Value.absent(),
+            Value<String?> referenceNumber = const Value.absent(),
             Value<double?> cost = const Value.absent(),
-            Value<String?> inhouse = const Value.absent(),
-            Value<String?> contactused = const Value.absent(),
-            Value<String?> timefrom = const Value.absent(),
-            Value<String?> timeto = const Value.absent(),
+            Value<String?> inHouse = const Value.absent(),
+            Value<String?> contactUsed = const Value.absent(),
+            Value<String?> timeFrom = const Value.absent(),
+            Value<String?> timeTo = const Value.absent(),
             Value<String?> planned = const Value.absent(),
             Value<String?> status = const Value.absent(),
             Value<String?> technician = const Value.absent(),
-            Value<PgDateTime?> datefrom = const Value.absent(),
-            Value<PgDateTime?> dateto = const Value.absent(),
-            Value<PgDateTime?> logdate = const Value.absent(),
-            Value<int?> schedeventid = const Value.absent(),
+            Value<PgDateTime?> dateFrom = const Value.absent(),
+            Value<PgDateTime?> dateTo = const Value.absent(),
+            Value<PgDateTime?> logDate = const Value.absent(),
+            Value<int?> schedEventId = const Value.absent(),
             Value<double?> downtime = const Value.absent(),
-            Value<int> rowid = const Value.absent(),
           }) =>
               MaintenanceEventsCompanion.insert(
-            eventid: eventid,
-            machineid: machineid,
+            eventId: eventId,
+            machineId: machineId,
             type: type,
-            faultdescription: faultdescription,
+            faultDescription: faultDescription,
             date: date,
-            loggedby: loggedby,
-            reportedby: reportedby,
-            fixapplied: fixapplied,
-            referencenumber: referencenumber,
+            loggedBy: loggedBy,
+            reportedBy: reportedBy,
+            fixApplied: fixApplied,
+            referenceNumber: referenceNumber,
             cost: cost,
-            inhouse: inhouse,
-            contactused: contactused,
-            timefrom: timefrom,
-            timeto: timeto,
+            inHouse: inHouse,
+            contactUsed: contactUsed,
+            timeFrom: timeFrom,
+            timeTo: timeTo,
             planned: planned,
             status: status,
             technician: technician,
-            datefrom: datefrom,
-            dateto: dateto,
-            logdate: logdate,
-            schedeventid: schedeventid,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            logDate: logDate,
+            schedEventId: schedEventId,
             downtime: downtime,
-            rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
@@ -2071,6 +3061,605 @@ typedef $$MaintenanceEventsTableProcessedTableManager = ProcessedTableManager<
     ),
     MaintenanceEvent,
     PrefetchHooks Function()>;
+typedef $$MaintenenceContactsTableCreateCompanionBuilder
+    = MaintenenceContactsCompanion Function({
+  Value<int?> contactId,
+  Value<int?> machineId,
+  Value<String?> contactPerson,
+  Value<String?> contactNumber,
+  Value<String?> alternativeNumber,
+  Value<String?> emailAddress,
+  Value<String?> servicesProvides,
+  Value<String?> companyName,
+});
+typedef $$MaintenenceContactsTableUpdateCompanionBuilder
+    = MaintenenceContactsCompanion Function({
+  Value<int?> contactId,
+  Value<int?> machineId,
+  Value<String?> contactPerson,
+  Value<String?> contactNumber,
+  Value<String?> alternativeNumber,
+  Value<String?> emailAddress,
+  Value<String?> servicesProvides,
+  Value<String?> companyName,
+});
+
+class $$MaintenenceContactsTableFilterComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceContactsTable> {
+  $$MaintenenceContactsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get contactId => $composableBuilder(
+      column: $table.contactId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get contactPerson => $composableBuilder(
+      column: $table.contactPerson, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get contactNumber => $composableBuilder(
+      column: $table.contactNumber, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get alternativeNumber => $composableBuilder(
+      column: $table.alternativeNumber,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get emailAddress => $composableBuilder(
+      column: $table.emailAddress, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get servicesProvides => $composableBuilder(
+      column: $table.servicesProvides,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get companyName => $composableBuilder(
+      column: $table.companyName, builder: (column) => ColumnFilters(column));
+}
+
+class $$MaintenenceContactsTableOrderingComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceContactsTable> {
+  $$MaintenenceContactsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get contactId => $composableBuilder(
+      column: $table.contactId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get contactPerson => $composableBuilder(
+      column: $table.contactPerson,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get contactNumber => $composableBuilder(
+      column: $table.contactNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get alternativeNumber => $composableBuilder(
+      column: $table.alternativeNumber,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get emailAddress => $composableBuilder(
+      column: $table.emailAddress,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get servicesProvides => $composableBuilder(
+      column: $table.servicesProvides,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get companyName => $composableBuilder(
+      column: $table.companyName, builder: (column) => ColumnOrderings(column));
+}
+
+class $$MaintenenceContactsTableAnnotationComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceContactsTable> {
+  $$MaintenenceContactsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get contactId =>
+      $composableBuilder(column: $table.contactId, builder: (column) => column);
+
+  GeneratedColumn<int> get machineId =>
+      $composableBuilder(column: $table.machineId, builder: (column) => column);
+
+  GeneratedColumn<String> get contactPerson => $composableBuilder(
+      column: $table.contactPerson, builder: (column) => column);
+
+  GeneratedColumn<String> get contactNumber => $composableBuilder(
+      column: $table.contactNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get alternativeNumber => $composableBuilder(
+      column: $table.alternativeNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get emailAddress => $composableBuilder(
+      column: $table.emailAddress, builder: (column) => column);
+
+  GeneratedColumn<String> get servicesProvides => $composableBuilder(
+      column: $table.servicesProvides, builder: (column) => column);
+
+  GeneratedColumn<String> get companyName => $composableBuilder(
+      column: $table.companyName, builder: (column) => column);
+}
+
+class $$MaintenenceContactsTableTableManager extends RootTableManager<
+    _$CertusInvisionDatabase,
+    $MaintenenceContactsTable,
+    MaintenenceContact,
+    $$MaintenenceContactsTableFilterComposer,
+    $$MaintenenceContactsTableOrderingComposer,
+    $$MaintenenceContactsTableAnnotationComposer,
+    $$MaintenenceContactsTableCreateCompanionBuilder,
+    $$MaintenenceContactsTableUpdateCompanionBuilder,
+    (
+      MaintenenceContact,
+      BaseReferences<_$CertusInvisionDatabase, $MaintenenceContactsTable,
+          MaintenenceContact>
+    ),
+    MaintenenceContact,
+    PrefetchHooks Function()> {
+  $$MaintenenceContactsTableTableManager(
+      _$CertusInvisionDatabase db, $MaintenenceContactsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MaintenenceContactsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MaintenenceContactsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MaintenenceContactsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> contactId = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
+            Value<String?> contactPerson = const Value.absent(),
+            Value<String?> contactNumber = const Value.absent(),
+            Value<String?> alternativeNumber = const Value.absent(),
+            Value<String?> emailAddress = const Value.absent(),
+            Value<String?> servicesProvides = const Value.absent(),
+            Value<String?> companyName = const Value.absent(),
+          }) =>
+              MaintenenceContactsCompanion(
+            contactId: contactId,
+            machineId: machineId,
+            contactPerson: contactPerson,
+            contactNumber: contactNumber,
+            alternativeNumber: alternativeNumber,
+            emailAddress: emailAddress,
+            servicesProvides: servicesProvides,
+            companyName: companyName,
+          ),
+          createCompanionCallback: ({
+            Value<int?> contactId = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
+            Value<String?> contactPerson = const Value.absent(),
+            Value<String?> contactNumber = const Value.absent(),
+            Value<String?> alternativeNumber = const Value.absent(),
+            Value<String?> emailAddress = const Value.absent(),
+            Value<String?> servicesProvides = const Value.absent(),
+            Value<String?> companyName = const Value.absent(),
+          }) =>
+              MaintenenceContactsCompanion.insert(
+            contactId: contactId,
+            machineId: machineId,
+            contactPerson: contactPerson,
+            contactNumber: contactNumber,
+            alternativeNumber: alternativeNumber,
+            emailAddress: emailAddress,
+            servicesProvides: servicesProvides,
+            companyName: companyName,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MaintenenceContactsTableProcessedTableManager = ProcessedTableManager<
+    _$CertusInvisionDatabase,
+    $MaintenenceContactsTable,
+    MaintenenceContact,
+    $$MaintenenceContactsTableFilterComposer,
+    $$MaintenenceContactsTableOrderingComposer,
+    $$MaintenenceContactsTableAnnotationComposer,
+    $$MaintenenceContactsTableCreateCompanionBuilder,
+    $$MaintenenceContactsTableUpdateCompanionBuilder,
+    (
+      MaintenenceContact,
+      BaseReferences<_$CertusInvisionDatabase, $MaintenenceContactsTable,
+          MaintenenceContact>
+    ),
+    MaintenenceContact,
+    PrefetchHooks Function()>;
+typedef $$MaintenenceItemsTableCreateCompanionBuilder
+    = MaintenenceItemsCompanion Function({
+  Value<int?> idColumn,
+  Value<String?> machine,
+  Value<String?> description,
+  Value<String?> category,
+  Value<String?> serial,
+});
+typedef $$MaintenenceItemsTableUpdateCompanionBuilder
+    = MaintenenceItemsCompanion Function({
+  Value<int?> idColumn,
+  Value<String?> machine,
+  Value<String?> description,
+  Value<String?> category,
+  Value<String?> serial,
+});
+
+class $$MaintenenceItemsTableFilterComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceItemsTable> {
+  $$MaintenenceItemsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get idColumn => $composableBuilder(
+      column: $table.idColumn, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get machine => $composableBuilder(
+      column: $table.machine, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get serial => $composableBuilder(
+      column: $table.serial, builder: (column) => ColumnFilters(column));
+}
+
+class $$MaintenenceItemsTableOrderingComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceItemsTable> {
+  $$MaintenenceItemsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get idColumn => $composableBuilder(
+      column: $table.idColumn, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get machine => $composableBuilder(
+      column: $table.machine, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get serial => $composableBuilder(
+      column: $table.serial, builder: (column) => ColumnOrderings(column));
+}
+
+class $$MaintenenceItemsTableAnnotationComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceItemsTable> {
+  $$MaintenenceItemsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get idColumn =>
+      $composableBuilder(column: $table.idColumn, builder: (column) => column);
+
+  GeneratedColumn<String> get machine =>
+      $composableBuilder(column: $table.machine, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get serial =>
+      $composableBuilder(column: $table.serial, builder: (column) => column);
+}
+
+class $$MaintenenceItemsTableTableManager extends RootTableManager<
+    _$CertusInvisionDatabase,
+    $MaintenenceItemsTable,
+    MaintenenceItem,
+    $$MaintenenceItemsTableFilterComposer,
+    $$MaintenenceItemsTableOrderingComposer,
+    $$MaintenenceItemsTableAnnotationComposer,
+    $$MaintenenceItemsTableCreateCompanionBuilder,
+    $$MaintenenceItemsTableUpdateCompanionBuilder,
+    (
+      MaintenenceItem,
+      BaseReferences<_$CertusInvisionDatabase, $MaintenenceItemsTable,
+          MaintenenceItem>
+    ),
+    MaintenenceItem,
+    PrefetchHooks Function()> {
+  $$MaintenenceItemsTableTableManager(
+      _$CertusInvisionDatabase db, $MaintenenceItemsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MaintenenceItemsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MaintenenceItemsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MaintenenceItemsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> idColumn = const Value.absent(),
+            Value<String?> machine = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> category = const Value.absent(),
+            Value<String?> serial = const Value.absent(),
+          }) =>
+              MaintenenceItemsCompanion(
+            idColumn: idColumn,
+            machine: machine,
+            description: description,
+            category: category,
+            serial: serial,
+          ),
+          createCompanionCallback: ({
+            Value<int?> idColumn = const Value.absent(),
+            Value<String?> machine = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> category = const Value.absent(),
+            Value<String?> serial = const Value.absent(),
+          }) =>
+              MaintenenceItemsCompanion.insert(
+            idColumn: idColumn,
+            machine: machine,
+            description: description,
+            category: category,
+            serial: serial,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MaintenenceItemsTableProcessedTableManager = ProcessedTableManager<
+    _$CertusInvisionDatabase,
+    $MaintenenceItemsTable,
+    MaintenenceItem,
+    $$MaintenenceItemsTableFilterComposer,
+    $$MaintenenceItemsTableOrderingComposer,
+    $$MaintenenceItemsTableAnnotationComposer,
+    $$MaintenenceItemsTableCreateCompanionBuilder,
+    $$MaintenenceItemsTableUpdateCompanionBuilder,
+    (
+      MaintenenceItem,
+      BaseReferences<_$CertusInvisionDatabase, $MaintenenceItemsTable,
+          MaintenenceItem>
+    ),
+    MaintenenceItem,
+    PrefetchHooks Function()>;
+typedef $$MaintenenceSchedTasksTableCreateCompanionBuilder
+    = MaintenenceSchedTasksCompanion Function({
+  Value<int?> id,
+  Value<int?> machineId,
+  Value<String?> task,
+  Value<double?> frequency,
+  Value<DateTime?> dstartDate,
+  Value<String?> createdBy,
+  Value<String?> frequencyUnit,
+});
+typedef $$MaintenenceSchedTasksTableUpdateCompanionBuilder
+    = MaintenenceSchedTasksCompanion Function({
+  Value<int?> id,
+  Value<int?> machineId,
+  Value<String?> task,
+  Value<double?> frequency,
+  Value<DateTime?> dstartDate,
+  Value<String?> createdBy,
+  Value<String?> frequencyUnit,
+});
+
+class $$MaintenenceSchedTasksTableFilterComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceSchedTasksTable> {
+  $$MaintenenceSchedTasksTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get task => $composableBuilder(
+      column: $table.task, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get frequency => $composableBuilder(
+      column: $table.frequency, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get dstartDate => $composableBuilder(
+      column: $table.dstartDate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get frequencyUnit => $composableBuilder(
+      column: $table.frequencyUnit, builder: (column) => ColumnFilters(column));
+}
+
+class $$MaintenenceSchedTasksTableOrderingComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceSchedTasksTable> {
+  $$MaintenenceSchedTasksTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get machineId => $composableBuilder(
+      column: $table.machineId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get task => $composableBuilder(
+      column: $table.task, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get frequency => $composableBuilder(
+      column: $table.frequency, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get dstartDate => $composableBuilder(
+      column: $table.dstartDate, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+      column: $table.createdBy, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get frequencyUnit => $composableBuilder(
+      column: $table.frequencyUnit,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$MaintenenceSchedTasksTableAnnotationComposer
+    extends Composer<_$CertusInvisionDatabase, $MaintenenceSchedTasksTable> {
+  $$MaintenenceSchedTasksTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get machineId =>
+      $composableBuilder(column: $table.machineId, builder: (column) => column);
+
+  GeneratedColumn<String> get task =>
+      $composableBuilder(column: $table.task, builder: (column) => column);
+
+  GeneratedColumn<double> get frequency =>
+      $composableBuilder(column: $table.frequency, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get dstartDate => $composableBuilder(
+      column: $table.dstartDate, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get frequencyUnit => $composableBuilder(
+      column: $table.frequencyUnit, builder: (column) => column);
+}
+
+class $$MaintenenceSchedTasksTableTableManager extends RootTableManager<
+    _$CertusInvisionDatabase,
+    $MaintenenceSchedTasksTable,
+    MaintenenceSchedTask,
+    $$MaintenenceSchedTasksTableFilterComposer,
+    $$MaintenenceSchedTasksTableOrderingComposer,
+    $$MaintenenceSchedTasksTableAnnotationComposer,
+    $$MaintenenceSchedTasksTableCreateCompanionBuilder,
+    $$MaintenenceSchedTasksTableUpdateCompanionBuilder,
+    (
+      MaintenenceSchedTask,
+      BaseReferences<_$CertusInvisionDatabase, $MaintenenceSchedTasksTable,
+          MaintenenceSchedTask>
+    ),
+    MaintenenceSchedTask,
+    PrefetchHooks Function()> {
+  $$MaintenenceSchedTasksTableTableManager(
+      _$CertusInvisionDatabase db, $MaintenenceSchedTasksTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MaintenenceSchedTasksTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MaintenenceSchedTasksTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MaintenenceSchedTasksTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
+            Value<String?> task = const Value.absent(),
+            Value<double?> frequency = const Value.absent(),
+            Value<DateTime?> dstartDate = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> frequencyUnit = const Value.absent(),
+          }) =>
+              MaintenenceSchedTasksCompanion(
+            id: id,
+            machineId: machineId,
+            task: task,
+            frequency: frequency,
+            dstartDate: dstartDate,
+            createdBy: createdBy,
+            frequencyUnit: frequencyUnit,
+          ),
+          createCompanionCallback: ({
+            Value<int?> id = const Value.absent(),
+            Value<int?> machineId = const Value.absent(),
+            Value<String?> task = const Value.absent(),
+            Value<double?> frequency = const Value.absent(),
+            Value<DateTime?> dstartDate = const Value.absent(),
+            Value<String?> createdBy = const Value.absent(),
+            Value<String?> frequencyUnit = const Value.absent(),
+          }) =>
+              MaintenenceSchedTasksCompanion.insert(
+            id: id,
+            machineId: machineId,
+            task: task,
+            frequency: frequency,
+            dstartDate: dstartDate,
+            createdBy: createdBy,
+            frequencyUnit: frequencyUnit,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MaintenenceSchedTasksTableProcessedTableManager
+    = ProcessedTableManager<
+        _$CertusInvisionDatabase,
+        $MaintenenceSchedTasksTable,
+        MaintenenceSchedTask,
+        $$MaintenenceSchedTasksTableFilterComposer,
+        $$MaintenenceSchedTasksTableOrderingComposer,
+        $$MaintenenceSchedTasksTableAnnotationComposer,
+        $$MaintenenceSchedTasksTableCreateCompanionBuilder,
+        $$MaintenenceSchedTasksTableUpdateCompanionBuilder,
+        (
+          MaintenenceSchedTask,
+          BaseReferences<_$CertusInvisionDatabase, $MaintenenceSchedTasksTable,
+              MaintenenceSchedTask>
+        ),
+        MaintenenceSchedTask,
+        PrefetchHooks Function()>;
 
 class $CertusInvisionDatabaseManager {
   final _$CertusInvisionDatabase _db;
@@ -2079,4 +3668,10 @@ class $CertusInvisionDatabaseManager {
       $$DriftDatabaseTypesTableTableManager(_db, _db.driftDatabaseTypes);
   $$MaintenanceEventsTableTableManager get maintenanceEvents =>
       $$MaintenanceEventsTableTableManager(_db, _db.maintenanceEvents);
+  $$MaintenenceContactsTableTableManager get maintenenceContacts =>
+      $$MaintenenceContactsTableTableManager(_db, _db.maintenenceContacts);
+  $$MaintenenceItemsTableTableManager get maintenenceItems =>
+      $$MaintenenceItemsTableTableManager(_db, _db.maintenenceItems);
+  $$MaintenenceSchedTasksTableTableManager get maintenenceSchedTasks =>
+      $$MaintenenceSchedTasksTableTableManager(_db, _db.maintenenceSchedTasks);
 }
