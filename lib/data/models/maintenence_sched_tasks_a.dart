@@ -1,11 +1,7 @@
 import 'package:drift/drift.dart';
 
-import '../../types/json.dart';
-import '../../types/timestamp_no_timezone.dart';
-import '../../types/uuid.dart';
 import '../../types/numeric.dart';
 import '../../types/date.dart';
-import '../../types/xml.dart';
 
 class MaintenenceSchedTasks extends Table {
   @override

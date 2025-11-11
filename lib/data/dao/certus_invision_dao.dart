@@ -41,7 +41,11 @@ class CertusInvisionDao extends DatabaseAccessor<CertusInvisionDatabase>
     return select(driftDatabaseTypes).get();
   }
 
-  // Now the best test, but it is fine for now
+  Future<List<MaintenenceContact>> getAllContact() {
+    return select(maintenenceContacts).get();
+  }
+
+  // Not the best test, but it is fine for now
   Future<bool> isConnected() async {
     final query = selectOnly(driftDatabaseTypes)
       ..addColumns([const Constant(1)]);

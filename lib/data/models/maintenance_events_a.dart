@@ -4,7 +4,6 @@ import 'package:drift_postgres/drift_postgres.dart';
 import '../../types/timestamp_no_timezone.dart';
 import '../../types/numeric.dart';
 
-
 class MaintenanceEvents extends Table {
   @override
   String get tableName => 'maintenanceeventsa';

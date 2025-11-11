@@ -72,12 +72,34 @@ class CertusInvisionDatabase extends _$CertusInvisionDatabase{
     return CertusInvisionDatabase(executor);
   }
 
+  factory CertusInvisionDatabase.invision(){
+    final executor = PgDatabase(
+      settings: pg.ConnectionSettings(
+        timeZone: 'Africa/Johannesburg',
+        connectTimeout: const Duration(seconds: 30),
+        queryTimeout: null,
+        sslMode: pg.SslMode.require,
+      ),
+      endpoint: pg.Endpoint(
+        host: 'invisionapp.postgres.database.azure.com',
+        database: 'invision2',
+        username: 'citus',
+        password: 'DuitseR64332',
+      ),
+      logStatements: kDebugMode, // only log when debugging
+    );
+    return CertusInvisionDatabase(executor);
+  }
+
+
   @override
   int get schemaVersion => 1;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
+      // TODO: Add this logic to differentiate between local and remote dbs
+      //if (type == DatabaseType.remote) return Future(() => null);
       await m.createAll();
     },
     onUpgrade: (Migrator m, int from, int to) async {
