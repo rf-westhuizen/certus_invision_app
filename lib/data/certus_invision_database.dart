@@ -16,6 +16,7 @@ import '../types/uuid.dart';
 import '../types/xml.dart';
 import 'dao/certus_invision_dao.dart';
 import 'models/drift_database_types.dart';
+import 'models/maintenance_events_a.dart';
 
 part 'certus_invision_database.g.dart';
 
@@ -24,7 +25,10 @@ enum DatabaseType { local, remote }
 
 
 @DriftDatabase(
-  tables: [DriftDatabaseTypes],
+  tables: [
+    DriftDatabaseTypes,
+    MaintenanceEvents
+  ],
   views: [],
   daos: [CertusInvisionDao],
   include: {},

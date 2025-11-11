@@ -39,4 +39,7 @@ class DriftDatabaseTypes extends Table {
   TextColumn get characterVar =>
       text().named('character_var').withLength(min: 0, max: 100).nullable()();
 
+  TextColumn get textVar =>
+      text().named('text_var').nullable()();
+
 }

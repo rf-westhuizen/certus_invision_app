@@ -58,6 +58,7 @@ void main() async{
         boolValue: false,
         xml: '<root><element>Test 55</element></root>',
         characterVar: 'Sample Text',
+        textVar: 'Checked, 3 clamps swopped, cleaned shafts so there is no grease or oil. Increased screw torque to 10Nm. Replaced threads on 1 clamp from M5 to M6 due to stripping'
       );
 
       final localResult = await localDb.certusInvisionDao.insertType(newRecord.toCompanion(true)); // .toCompanion(true) -> ignores nulls so DB defaults apply.

@@ -6,4 +6,6 @@ part of 'certus_invision_dao.dart';
 mixin _$CertusInvisionDaoMixin on DatabaseAccessor<CertusInvisionDatabase> {
   $DriftDatabaseTypesTable get driftDatabaseTypes =>
       attachedDatabase.driftDatabaseTypes;
+  $MaintenanceEventsTable get maintenanceEvents =>
+      attachedDatabase.maintenanceEvents;
 }
