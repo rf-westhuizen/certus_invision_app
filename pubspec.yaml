@@ -24,7 +24,8 @@ dependencies:
   uuid: ^4.5.1
   sqlite3:
   sqlite3_flutter_libs:
-
+  permission_handler: ^11.3.1
+  provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:

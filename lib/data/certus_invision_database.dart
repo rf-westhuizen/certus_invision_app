@@ -35,10 +35,6 @@ class CertusInvisionDatabase extends _$CertusInvisionDatabase{
   // create constructor
   CertusInvisionDatabase(QueryExecutor executor) : super(executor);
 
-  @override
-  int get schemaVersion => 1;
-
-
   // TODO: remember to add permissions on the android side
   factory CertusInvisionDatabase.local() {
     final dbFile = File('/sdcard/certus_invision_db.sqlite');
@@ -65,6 +61,22 @@ class CertusInvisionDatabase extends _$CertusInvisionDatabase{
     );
     return CertusInvisionDatabase(executor);
   }
+
+  @override
+  int get schemaVersion => 1;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onCreate: (Migrator m) async {
+      await m.createAll();
+    },
+    onUpgrade: (Migrator m, int from, int to) async {
+      if (from == 1) {
+        await m.create(driftDatabaseTypes);
+      }
+    },
+    beforeOpen: (details) async {},
+  );
 
 
 }

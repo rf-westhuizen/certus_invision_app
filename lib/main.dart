@@ -1,17 +1,49 @@
+import 'package:certus_invision_app/src/app_state.dart';
+import 'package:certus_invision_app/ui/views/landing_screen.dart';
+import 'package:drift_postgres/drift_postgres.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:certus_invision_app/router.dart' as rt;
+import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
+import 'data/certus_invision_database.dart';
+import 'data/repositories/maintenance_repository.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+
+  // Initialize Flutter bindings first to ensure proper zone handling
+  WidgetsFlutterBinding.ensureInitialized();
+
+  var status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
+
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<MaintenanceRepository>(
+          create: (_) => FakeMaintenanceRepository(),
+        ),
+        ChangeNotifierProvider<AppState>(
+          create: (ctx) => AppState(ctx.read<MaintenanceRepository>()),
+        ),
+      ],
+      child: const CertusApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CertusApp extends StatelessWidget {
+  const CertusApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Certus Maintenance App',
+      debugShowCheckedModeBanner: false,
+      initialRoute: LandingScreen.id,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,6 +63,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      onGenerateRoute: (settings) =>
+          rt.Router.generateRoute(settings: settings),
     );
   }
 }
@@ -55,6 +89,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  late CertusInvisionDatabase localDb;
 
   void _incrementCounter() {
     setState(() {
@@ -65,6 +100,40 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  Future<bool> checkConnection() async {
+    try{
+      final result = await localDb.certusInvisionDao.isConnected();
+      return result;
+    } catch (e) {
+      print('Error: $e');
+      return false;
+    }
+  }
+
+  Future<int> insertRecord() async {
+    try{
+        final newRecord = DriftDatabaseType(
+          id: UuidValue.fromString(Uuid().v4()),
+          json: {"hello":"world"},
+          date: DateTime.now(),
+          number: 10114.550,
+          timestamp: PgDateTime(DateTime.now()),
+          boolValue: false,
+          xml: '<root><element>Test 55</element></root>',
+        );
+
+        final localResult = await localDb.certusInvisionDao.insertType(newRecord.toCompanion(true));
+      return localResult;
+    } catch (e) {
+      print('Error: $e');
+      return 0;
+    }
+  }
+
+  void initialiseDatabase() {
+    localDb = CertusInvisionDatabase.local();
   }
 
   @override
@@ -109,6 +178,18 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(
+              onPressed: initialiseDatabase,
+              child: Text('1. create local DB'),
+            ),
+            ElevatedButton(
+              onPressed: checkConnection,
+              child: Text('2/4. create local DB connection'),
+            ),
+            ElevatedButton(
+              onPressed: insertRecord,
+              child: Text('3. insert record into DB'),
+            )
           ],
         ),
       ),

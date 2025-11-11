@@ -54,8 +54,24 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, json, date, number, timestamp, boolValue, xml, autoIncrement];
+  late final GeneratedColumn<String> characterVar = GeneratedColumn<String>(
+      'character_var', aliasedName, true,
+      additionalChecks:
+          GeneratedColumn.checkTextLength(minTextLength: 0, maxTextLength: 100),
+      type: DriftSqlType.string,
+      requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        json,
+        date,
+        number,
+        timestamp,
+        boolValue,
+        xml,
+        autoIncrement,
+        characterVar
+      ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -83,6 +99,8 @@ class $DriftDatabaseTypesTable extends DriftDatabaseTypes
           .read(xmlType, data['${effectivePrefix}xml']),
       autoIncrement: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}auto_increment']),
+      characterVar: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}character_var']),
     );
   }
 
@@ -102,6 +120,7 @@ class DriftDatabaseType extends DataClass
   final bool? boolValue;
   final String? xml;
   final int? autoIncrement;
+  final String? characterVar;
   const DriftDatabaseType(
       {this.id,
       this.json,
@@ -110,7 +129,8 @@ class DriftDatabaseType extends DataClass
       this.timestamp,
       this.boolValue,
       this.xml,
-      this.autoIncrement});
+      this.autoIncrement,
+      this.characterVar});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -139,6 +159,9 @@ class DriftDatabaseType extends DataClass
     if (!nullToAbsent || autoIncrement != null) {
       map['auto_increment'] = Variable<int>(autoIncrement);
     }
+    if (!nullToAbsent || characterVar != null) {
+      map['character_var'] = Variable<String>(characterVar);
+    }
     return map;
   }
 
@@ -159,6 +182,9 @@ class DriftDatabaseType extends DataClass
       autoIncrement: autoIncrement == null && nullToAbsent
           ? const Value.absent()
           : Value(autoIncrement),
+      characterVar: characterVar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(characterVar),
     );
   }
 
@@ -174,6 +200,7 @@ class DriftDatabaseType extends DataClass
       boolValue: serializer.fromJson<bool?>(json['boolValue']),
       xml: serializer.fromJson<String?>(json['xml']),
       autoIncrement: serializer.fromJson<int?>(json['autoIncrement']),
+      characterVar: serializer.fromJson<String?>(json['characterVar']),
     );
   }
   @override
@@ -188,6 +215,7 @@ class DriftDatabaseType extends DataClass
       'boolValue': serializer.toJson<bool?>(boolValue),
       'xml': serializer.toJson<String?>(xml),
       'autoIncrement': serializer.toJson<int?>(autoIncrement),
+      'characterVar': serializer.toJson<String?>(characterVar),
     };
   }
 
@@ -199,7 +227,8 @@ class DriftDatabaseType extends DataClass
           PgDateTime? timestamp,
           bool? boolValue,
           String? xml,
-          int? autoIncrement}) =>
+          int? autoIncrement,
+          String? characterVar}) =>
       DriftDatabaseType(
         id: id ?? this.id,
         json: json ?? this.json,
@@ -209,6 +238,7 @@ class DriftDatabaseType extends DataClass
         boolValue: boolValue ?? this.boolValue,
         xml: xml ?? this.xml,
         autoIncrement: autoIncrement ?? this.autoIncrement,
+        characterVar: characterVar ?? this.characterVar,
       );
   DriftDatabaseType copyWithCompanion(DriftDatabaseTypesCompanion data) {
     return DriftDatabaseType(
@@ -222,6 +252,9 @@ class DriftDatabaseType extends DataClass
       autoIncrement: data.autoIncrement.present
           ? data.autoIncrement.value
           : this.autoIncrement,
+      characterVar: data.characterVar.present
+          ? data.characterVar.value
+          : this.characterVar,
     );
   }
 
@@ -235,14 +268,15 @@ class DriftDatabaseType extends DataClass
           ..write('timestamp: $timestamp, ')
           ..write('boolValue: $boolValue, ')
           ..write('xml: $xml, ')
-          ..write('autoIncrement: $autoIncrement')
+          ..write('autoIncrement: $autoIncrement, ')
+          ..write('characterVar: $characterVar')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(
-      id, json, date, number, timestamp, boolValue, xml, autoIncrement);
+  int get hashCode => Object.hash(id, json, date, number, timestamp, boolValue,
+      xml, autoIncrement, characterVar);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -254,7 +288,8 @@ class DriftDatabaseType extends DataClass
           other.timestamp == this.timestamp &&
           other.boolValue == this.boolValue &&
           other.xml == this.xml &&
-          other.autoIncrement == this.autoIncrement);
+          other.autoIncrement == this.autoIncrement &&
+          other.characterVar == this.characterVar);
 }
 
 class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
@@ -266,6 +301,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
   final Value<bool?> boolValue;
   final Value<String?> xml;
   final Value<int?> autoIncrement;
+  final Value<String?> characterVar;
   const DriftDatabaseTypesCompanion({
     this.id = const Value.absent(),
     this.json = const Value.absent(),
@@ -275,6 +311,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
     this.boolValue = const Value.absent(),
     this.xml = const Value.absent(),
     this.autoIncrement = const Value.absent(),
+    this.characterVar = const Value.absent(),
   });
   DriftDatabaseTypesCompanion.insert({
     this.id = const Value.absent(),
@@ -285,6 +322,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
     this.boolValue = const Value.absent(),
     this.xml = const Value.absent(),
     this.autoIncrement = const Value.absent(),
+    this.characterVar = const Value.absent(),
   });
   static Insertable<DriftDatabaseType> custom({
     Expression<UuidValue>? id,
@@ -295,6 +333,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
     Expression<bool>? boolValue,
     Expression<String>? xml,
     Expression<int>? autoIncrement,
+    Expression<String>? characterVar,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -305,6 +344,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
       if (boolValue != null) 'bool_value': boolValue,
       if (xml != null) 'xml': xml,
       if (autoIncrement != null) 'auto_increment': autoIncrement,
+      if (characterVar != null) 'character_var': characterVar,
     });
   }
 
@@ -316,7 +356,8 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
       Value<PgDateTime?>? timestamp,
       Value<bool?>? boolValue,
       Value<String?>? xml,
-      Value<int?>? autoIncrement}) {
+      Value<int?>? autoIncrement,
+      Value<String?>? characterVar}) {
     return DriftDatabaseTypesCompanion(
       id: id ?? this.id,
       json: json ?? this.json,
@@ -326,6 +367,7 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
       boolValue: boolValue ?? this.boolValue,
       xml: xml ?? this.xml,
       autoIncrement: autoIncrement ?? this.autoIncrement,
+      characterVar: characterVar ?? this.characterVar,
     );
   }
 
@@ -357,6 +399,9 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
     if (autoIncrement.present) {
       map['auto_increment'] = Variable<int>(autoIncrement.value);
     }
+    if (characterVar.present) {
+      map['character_var'] = Variable<String>(characterVar.value);
+    }
     return map;
   }
 
@@ -370,7 +415,8 @@ class DriftDatabaseTypesCompanion extends UpdateCompanion<DriftDatabaseType> {
           ..write('timestamp: $timestamp, ')
           ..write('boolValue: $boolValue, ')
           ..write('xml: $xml, ')
-          ..write('autoIncrement: $autoIncrement')
+          ..write('autoIncrement: $autoIncrement, ')
+          ..write('characterVar: $characterVar')
           ..write(')'))
         .toString();
   }
@@ -404,6 +450,7 @@ typedef $$DriftDatabaseTypesTableCreateCompanionBuilder
   Value<bool?> boolValue,
   Value<String?> xml,
   Value<int?> autoIncrement,
+  Value<String?> characterVar,
 });
 typedef $$DriftDatabaseTypesTableUpdateCompanionBuilder
     = DriftDatabaseTypesCompanion Function({
@@ -415,6 +462,7 @@ typedef $$DriftDatabaseTypesTableUpdateCompanionBuilder
   Value<bool?> boolValue,
   Value<String?> xml,
   Value<int?> autoIncrement,
+  Value<String?> characterVar,
 });
 
 class $$DriftDatabaseTypesTableFilterComposer
@@ -449,6 +497,9 @@ class $$DriftDatabaseTypesTableFilterComposer
 
   ColumnFilters<int> get autoIncrement => $composableBuilder(
       column: $table.autoIncrement, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get characterVar => $composableBuilder(
+      column: $table.characterVar, builder: (column) => ColumnFilters(column));
 }
 
 class $$DriftDatabaseTypesTableOrderingComposer
@@ -484,6 +535,10 @@ class $$DriftDatabaseTypesTableOrderingComposer
   ColumnOrderings<int> get autoIncrement => $composableBuilder(
       column: $table.autoIncrement,
       builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get characterVar => $composableBuilder(
+      column: $table.characterVar,
+      builder: (column) => ColumnOrderings(column));
 }
 
 class $$DriftDatabaseTypesTableAnnotationComposer
@@ -518,6 +573,9 @@ class $$DriftDatabaseTypesTableAnnotationComposer
 
   GeneratedColumn<int> get autoIncrement => $composableBuilder(
       column: $table.autoIncrement, builder: (column) => column);
+
+  GeneratedColumn<String> get characterVar => $composableBuilder(
+      column: $table.characterVar, builder: (column) => column);
 }
 
 class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
@@ -557,6 +615,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
             Value<bool?> boolValue = const Value.absent(),
             Value<String?> xml = const Value.absent(),
             Value<int?> autoIncrement = const Value.absent(),
+            Value<String?> characterVar = const Value.absent(),
           }) =>
               DriftDatabaseTypesCompanion(
             id: id,
@@ -567,6 +626,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
             boolValue: boolValue,
             xml: xml,
             autoIncrement: autoIncrement,
+            characterVar: characterVar,
           ),
           createCompanionCallback: ({
             Value<UuidValue?> id = const Value.absent(),
@@ -577,6 +637,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
             Value<bool?> boolValue = const Value.absent(),
             Value<String?> xml = const Value.absent(),
             Value<int?> autoIncrement = const Value.absent(),
+            Value<String?> characterVar = const Value.absent(),
           }) =>
               DriftDatabaseTypesCompanion.insert(
             id: id,
@@ -587,6 +648,7 @@ class $$DriftDatabaseTypesTableTableManager extends RootTableManager<
             boolValue: boolValue,
             xml: xml,
             autoIncrement: autoIncrement,
+            characterVar: characterVar,
           ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

@@ -35,4 +35,8 @@ class DriftDatabaseTypes extends Table {
       customType(xmlType).named('xml').nullable()(); // can't do this atm
   IntColumn get autoIncrement =>
       integer().autoIncrement().named('auto_increment').nullable()();
+
+  TextColumn get characterVar =>
+      text().named('character_var').withLength(min: 0, max: 100).nullable()();
+
 }
