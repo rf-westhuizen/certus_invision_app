@@ -37,7 +37,12 @@ class _LandingScreenState extends State<LandingScreen> {
             const SizedBox(height: 24),
             FilledButton(
               onPressed: () => Navigator.pushNamed(context, '/events'),
-              child: const Text('Go to Maintenance Events'),
+              child: const Text('Stay'),
+            ),
+            const SizedBox(height: 24),
+            FilledButton(
+              onPressed: () => Navigator.pushNamed(context, 'maintenance_events_screen'),
+              child: const Text('Maintenance Events Overview'),
             ),
           ],
         ),

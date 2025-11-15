@@ -53,5 +53,45 @@ class CertusInvisionDao extends DatabaseAccessor<CertusInvisionDatabase>
     return result.isNotEmpty; // false if table exists but empty
   }
 
+  // Get all machine information
+ Future<List<MaintenenceItem>> getAllMachines() async {
+    final query = select(maintenenceItems);
+    final result = await query.get();
+    return result;
+  }
+
+  // Future<MaintenenceItem> getMachineById(int machineId) async {
+  //   final query = select(maintenenceItems)
+  //     ..where((tbl) => tbl.machineId.equals(machineId));
+  //   final result = await query.getSingleOrNull();
+  //   if (result == null) {
+  //     throw Exception('Machine with ID $machineId not found.');
+  //   }
+  //   return result;
+  // }
+
+  Future<List<MaintenanceEvent>> getMachineEventsById(int machineId) async {
+    final query = select(maintenenceItems).join([
+      innerJoin(
+        maintenanceEvents,
+        maintenanceEvents.machineId.equalsExp(maintenenceItems.idColumn),
+      ),
+    ])
+    ..where(maintenenceItems.idColumn.equals(machineId));
+
+    final rows = await query.get();
+    if (rows.isEmpty) {
+      return [];
+    }
+    return rows.map((row) => row.readTable(maintenanceEvents)).toList();
+
+  }
+
+  Future<int> getMachineEventCount(int machineId) async {
+    final query = select(maintenanceEvents)
+      ..where((tbl) => tbl.machineId.equals(machineId));
+    return query.get().then((rows) => rows.length);
+  }
+
 
 }

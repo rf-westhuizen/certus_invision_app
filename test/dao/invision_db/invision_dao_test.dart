@@ -27,19 +27,31 @@ void main() async {
       print('Invision DB connection status: $invisionResult');
     });
 
-    test('Test 4: reading records', () async {
-      List<MaintenenceContact> invisionResult =
-          await invisionDb.certusInvisionDao.getAllContact();
+    test('Test 2: Machine Information...', () async {
+
+      final invisionResult = await invisionDb.certusInvisionDao.getAllMachines();
       for (var row in invisionResult) {
-        print('contactid: ${row.contactId}');
-        print('machineid: ${row.machineId}');
-        print('contactperson: ${row.contactPerson}');
-        print('contactnumber: ${row.contactNumber}');
-        print('alternativenumber: ${row.alternativeNumber}');
-        print('emailadress: ${row.emailAddress}');
-        print('servicesprovides: ${row.servicesProvides}');
-        print('companyname: ${row.companyName}');
+        print('machineid: ${row.idColumn}');
+        print('machinename: ${row.machine}');
       }
+
     });
+
+    // test('Test 4: reading records', () async {
+    //   List<MaintenenceContact> invisionResult =
+    //       await invisionDb.certusInvisionDao.getAllContact();
+    //   for (var row in invisionResult) {
+    //     print('contactid: ${row.contactId}');
+    //     print('machineid: ${row.machineId}');
+    //     print('contactperson: ${row.contactPerson}');
+    //     print('contactnumber: ${row.contactNumber}');
+    //     print('alternativenumber: ${row.alternativeNumber}');
+    //     print('emailadress: ${row.emailAddress}');
+    //     print('servicesprovides: ${row.servicesProvides}');
+    //     print('companyname: ${row.companyName}');
+    //   }
+    // });
+
+
   });
 }
