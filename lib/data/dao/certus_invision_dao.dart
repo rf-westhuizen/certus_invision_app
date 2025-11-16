@@ -93,5 +93,10 @@ class CertusInvisionDao extends DatabaseAccessor<CertusInvisionDatabase>
     return query.get().then((rows) => rows.length);
   }
 
+  Future<List<MaintenanceEvent>> getAllEvents() async {
+    final query = select(maintenanceEvents);
+    return await query.get();
+  }
+
 
 }

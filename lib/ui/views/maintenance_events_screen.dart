@@ -17,21 +17,39 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _searchController = TextEditingController();
+  int? _selectedMachineId;
+  String? _selectedMachineName;
 
-  late final List<Widget> pages;
+  late List<Widget> pages;
 
   @override
   void initState() {
     super.initState();
 
-    pages = [
-      machineInfoWidget(),
-      //const Center(child: Text('All Events')),
-      const Center(child: Text('Pending Events')),
-      const Center(child: Text('Completed Events')),
-    ];
+    _initializeTabs();
 
     _tabController = TabController(length: pages.length, vsync: this);
+    _tabController.addListener(_handleTabChange);
+  }
+
+
+  void _handleTabChange() {
+    if(_tabController.index != 0 && _selectedMachineId == null){
+      _tabController.animateTo(0);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select a machine first.'),
+        ),
+      );
+    }
+  }
+
+  void _initializeTabs() {
+    pages = [
+      machineInfoWidget(),
+      DetailedMachineEventsScreen(machineId: _selectedMachineId ?? 1, machineName: _selectedMachineName ?? 'All Machines', eventFilter: 'Open'),
+      DetailedMachineEventsScreen(machineId: _selectedMachineId ?? 1, machineName: _selectedMachineName ?? 'All Machines', eventFilter: 'Closed'),
+    ];
   }
 
   @override
@@ -51,10 +69,10 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
           bottom: TabBar(
             controller: _tabController,
             tabs: const [
-              Tab(text: 'Machine', icon: Icon(Icons.interpreter_mode_sharp)),
+              Tab(text: 'Machine', icon: Icon(Icons.account_tree_outlined)),
               //Tab(text: 'All', icon: Icon(Icons.factory)),
-              Tab(text: 'Pending', icon: Icon(Icons.warning_amber)),
-              Tab(text: 'Completed', icon: Icon(Icons.done_all)),
+              Tab(text: 'Open Events', icon: Icon(Icons.warning_amber)),
+              Tab(text: 'Closed Events', icon: Icon(Icons.done_all)),
             ],
             labelColor: Theme.of(context).primaryColor,
             unselectedLabelColor: Colors.grey,
@@ -73,15 +91,11 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
     return Consumer<MaintenanceEventsScreenModel>(
       builder: (context, model, _) {
         if (model.isLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (model.machineData.isEmpty) {
-          return const Center(
-            child: Text('No machines found'),
-          );
+          return const Center(child: Text('No machines found'));
         }
 
         return ListView.builder(
@@ -89,28 +103,38 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
           itemBuilder: (context, index) {
             final machine = model.machineData[index];
             return ListTile(
-              leading: Text(
-                '${model.getEventCount(machine.idColumn!)}',
-                style: const TextStyle(fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.red,
-                ),
-              ),
-              title: Text(
-                machine.machine ?? 'Unknown Machine',
-              ),
+              title: Text(machine.machine ?? 'Unknown Machine'),
               subtitle: Text(machine.description ?? 'No description available'),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => DetailedMachineEventsScreen(
-                      machineId: machine.idColumn!,
-                      machineName: machine.machine ?? 'Unknown Machine',
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      '${model.getEventCount(machine.idColumn!)} events',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
-                );
+                  const SizedBox(width: 8),
+                  const Icon(Icons.arrow_right),
+                ],
+              ),
+              onTap: () {
+                setState(() {
+                  _selectedMachineId = machine.idColumn;
+                  _selectedMachineName = machine.machine;
+                  _initializeTabs(); // Rebuild pages with the selected machine
+                  _tabController.animateTo(1); // Switch to Pending Events tab
+                });
               },
-              trailing: const Icon(Icons.arrow_right),
             );
           },
         );
