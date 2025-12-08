@@ -20,15 +20,13 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
   int? _selectedMachineId;
   String? _selectedMachineName;
 
-  late List<Widget> pages;
+  late final MaintenanceEventsScreenModel _model;
 
   @override
   void initState() {
     super.initState();
-
-    _initializeTabs();
-
-    _tabController = TabController(length: pages.length, vsync: this);
+    _model = MaintenanceEventsScreenModel();
+    _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(_handleTabChange);
   }
 
@@ -42,20 +40,19 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
         ),
       );
     }
+
+    //Refresh data when returning to machine list
+    if(_tabController.index == 0) {
+      _model.refresh();
+    }
   }
 
-  void _initializeTabs() {
-    pages = [
-      machineInfoWidget(),
-      DetailedMachineEventsScreen(machineId: _selectedMachineId ?? 1, machineName: _selectedMachineName ?? 'All Machines', eventFilter: 'Open'),
-      DetailedMachineEventsScreen(machineId: _selectedMachineId ?? 1, machineName: _selectedMachineName ?? 'All Machines', eventFilter: 'Closed'),
-    ];
-  }
 
   @override
   void dispose() {
     _tabController.dispose();
     _searchController.dispose();
+    _model.dispose();
     super.dispose();
   }
 
@@ -69,8 +66,8 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
           bottom: TabBar(
             controller: _tabController,
             tabs: const [
-              Tab(text: 'Machine', icon: Icon(Icons.account_tree_outlined)),
-              //Tab(text: 'All', icon: Icon(Icons.factory)),
+              //Tab(text: 'Machine', icon: Icon(Icons.account_tree_outlined)),
+              Tab(text: 'Machine', icon: Icon(Icons.factory)),
               Tab(text: 'Open Events', icon: Icon(Icons.warning_amber)),
               Tab(text: 'Closed Events', icon: Icon(Icons.done_all)),
             ],
@@ -81,7 +78,21 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
         ),
         body: TabBarView(
           controller: _tabController,
-          children: pages,
+          children: [
+            machineInfoWidget(),
+            DetailedMachineEventsScreen(
+                key: ValueKey('open_$_selectedMachineId'),
+                machineId: _selectedMachineId ?? 1,
+                machineName: _selectedMachineName ?? 'All Machines',
+                eventFilter: 'Open'
+            ),
+            DetailedMachineEventsScreen(
+                key: ValueKey('closed_$_selectedMachineId'),
+                machineId: _selectedMachineId ?? 1,
+                machineName: _selectedMachineName ?? 'All Machines',
+                eventFilter: 'Closed'
+            ),
+          ],
         ),
       ),
     );
@@ -128,11 +139,11 @@ class _MaintenanceEventsScreenState extends State<MaintenanceEventsScreen>
                 ],
               ),
               onTap: () {
+                print('Selected machine: ${machine.machine}');
                 setState(() {
                   _selectedMachineId = machine.idColumn;
                   _selectedMachineName = machine.machine;
-                  _initializeTabs(); // Rebuild pages with the selected machine
-                  _tabController.animateTo(1); // Switch to Pending Events tab
+                  _tabController.animateTo(1); // Switch to Pending Events tab [0,1,2]
                 });
               },
             );

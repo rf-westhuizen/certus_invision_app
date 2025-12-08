@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../src/app_state.dart';
+import 'maintenance_events_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   static const String id = 'landing_screen';
@@ -41,7 +42,7 @@ class _LandingScreenState extends State<LandingScreen> {
             ),
             const SizedBox(height: 24),
             FilledButton(
-              onPressed: () => Navigator.pushNamed(context, 'maintenance_events_screen'),
+              onPressed: () => Navigator.pushNamed(context, MaintenanceEventsScreen.id),
               child: const Text('Maintenance Events Overview'),
             ),
           ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/certus_invision_database.dart';
 
-class MaintenanceEventsScreenModel extends ChangeNotifier{
+class MaintenanceEventsScreenModel extends ChangeNotifier {
 
   late CertusInvisionDatabase invisionDb;
   final List<MaintenenceItem> _machineData = [];
@@ -47,6 +47,10 @@ class MaintenanceEventsScreenModel extends ChangeNotifier{
     await _loadEventCounts();
     _isLoading = false;
     notifyListeners();
+  }
+
+  Future<void> refresh() async {
+    await _getMachineData();
   }
 
 }

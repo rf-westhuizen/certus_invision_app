@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../src/app_state.dart';
 import '../view_models/detailed_machine_events_screen_model.dart';
+import 'add_maintenance_event_screen.dart';
 
 
 
@@ -51,6 +53,26 @@ class DetailedMachineEventsScreen extends StatelessWidget {
             );
           },
         ),
+        floatingActionButton: (eventFilter?.toUpperCase() == 'OPEN')
+          ? FloatingActionButton(
+          onPressed: () async {
+            if(context.read<AppState>().canEditEngineering){
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddMaintenanceEventScreen(
+                    machineId: machineId!,
+                    machineName: machineName,
+                  ),
+                ),
+              );
+              if (result == true && context.mounted) {
+                context.read<DetailedMachineEventsScreenModel>().refresh();
+              }
+            }
+          },
+          child: const Icon(Icons.add),
+        ) : null,
       ),
     );
   }

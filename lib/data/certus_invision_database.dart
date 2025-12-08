@@ -25,8 +25,6 @@ part 'certus_invision_database.g.dart';
 
 enum DatabaseType { local, remote }
 
-
-
 @DriftDatabase(
   tables: [
     DriftDatabaseTypes,
@@ -42,55 +40,72 @@ enum DatabaseType { local, remote }
 
 class CertusInvisionDatabase extends _$CertusInvisionDatabase{
 
-  // create constructor
-  CertusInvisionDatabase(QueryExecutor executor) : super(executor);
+  static CertusInvisionDatabase? _localInstance;
+  static CertusInvisionDatabase? _postgresInstance;
+  static CertusInvisionDatabase? _invisionInstance;
+
+
+  // Private constructor
+  CertusInvisionDatabase._internal(QueryExecutor executor) : super(executor);
 
   // TODO: remember to add permissions on the android side
   factory CertusInvisionDatabase.local() {
-    final dbFile = File('/sdcard/certus_invision_db.sqlite');
-    final executor = NativeDatabase(dbFile);
-    return CertusInvisionDatabase(executor);
+    if (_localInstance == null) {
+      final dbFile = File('/sdcard/certus_invision_db.sqlite');
+      final executor = NativeDatabase(dbFile);
+      _localInstance = CertusInvisionDatabase._internal(executor);
+    }
+    return _localInstance!;
   }
 
-  factory CertusInvisionDatabase.postgres(){
-    final executor = PgDatabase(
-      settings: pg.ConnectionSettings(
-        timeZone: 'Africa/Johannesburg',
-        connectTimeout: const Duration(seconds: 30),
-        queryTimeout: null,
-        sslMode: pg.SslMode.require,
-      ),
-      // TODO: Look into using environment variables or secure storage for credentials
-      endpoint: pg.Endpoint(
-        host: 'invisionapp.postgres.database.azure.com',
-        database: 'postgres',
-        username: 'citus',
-        password: 'DuitseR64332',
-      ),
-      logStatements: kDebugMode, // only log when debugging
-    );
-    return CertusInvisionDatabase(executor);
+  factory CertusInvisionDatabase.postgres() {
+    if (_postgresInstance == null) {
+      final executor = PgDatabase(
+        settings: pg.ConnectionSettings(
+          timeZone: 'Africa/Johannesburg',
+          connectTimeout: const Duration(seconds: 30),
+          queryTimeout: null,
+          sslMode: pg.SslMode.require,
+        ),
+        endpoint: pg.Endpoint(
+          host: 'invisionapp.postgres.database.azure.com',
+          database: 'postgres',
+          username: 'citus',
+          password: 'DuitseR64332',
+        ),
+        logStatements: kDebugMode,
+      );
+      _postgresInstance = CertusInvisionDatabase._internal(executor);
+    }
+    return _postgresInstance!;
   }
 
-  factory CertusInvisionDatabase.invision(){
-    final executor = PgDatabase(
-      settings: pg.ConnectionSettings(
-        timeZone: 'Africa/Johannesburg',
-        connectTimeout: const Duration(seconds: 30),
-        queryTimeout: null,
-        sslMode: pg.SslMode.require,
-      ),
-      endpoint: pg.Endpoint(
-        host: 'invisionapp.postgres.database.azure.com',
-        database: 'invision2',
-        username: 'citus',
-        password: 'DuitseR64332',
-      ),
-      logStatements: kDebugMode, // only log when debugging
-    );
-    return CertusInvisionDatabase(executor);
+  factory CertusInvisionDatabase.invision() {
+    if (_invisionInstance == null) {
+      final executor = PgDatabase(
+        settings: pg.ConnectionSettings(
+          timeZone: 'Africa/Johannesburg',
+          connectTimeout: const Duration(seconds: 30),
+          queryTimeout: null,
+          sslMode: pg.SslMode.require,
+        ),
+        endpoint: pg.Endpoint(
+          host: 'invisionapp.postgres.database.azure.com',
+          database: 'invision2',
+          username: 'citus',
+          password: 'DuitseR64332',
+        ),
+        logStatements: kDebugMode,
+      );
+      _invisionInstance = CertusInvisionDatabase._internal(executor);
+    }
+    return _invisionInstance!;
   }
 
+  static void resetInvisionInstance() {
+    _invisionInstance?.close();
+    _invisionInstance = null;
+  }
 
   @override
   int get schemaVersion => 1;

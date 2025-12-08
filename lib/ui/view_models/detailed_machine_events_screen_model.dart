@@ -51,4 +51,9 @@ class DetailedMachineEventsScreenModel extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
+  Future<void> refresh() async {
+    await _loadEvents();
+  }
+
 }

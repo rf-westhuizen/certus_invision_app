@@ -1,5 +1,6 @@
 import 'package:certus_invision_app/src/app_state.dart';
 import 'package:certus_invision_app/ui/views/landing_screen.dart';
+import 'package:certus_invision_app/ui/views/login_screen.dart';
 import 'package:drift_postgres/drift_postgres.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -7,7 +8,6 @@ import 'package:certus_invision_app/router.dart' as rt;
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'data/certus_invision_database.dart';
-import 'data/repositories/maintenance_repository.dart';
 
 void main() async {
 
@@ -22,11 +22,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        Provider<MaintenanceRepository>(
-          create: (_) => FakeMaintenanceRepository(),
-        ),
+        /// TODO: refactor or rewrite code: Not being used atm
         ChangeNotifierProvider<AppState>(
-          create: (ctx) => AppState(ctx.read<MaintenanceRepository>()),
+          create: (ctx) => AppState()..initializeAuth(),
         ),
       ],
       child: const CertusApp(),
@@ -43,26 +41,11 @@ class CertusApp extends StatelessWidget {
     return MaterialApp(
       title: 'Certus Maintenance App',
       debugShowCheckedModeBanner: false,
-      initialRoute: LandingScreen.id,
+      initialRoute: LoginScreen.id,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
       onGenerateRoute: (settings) =>
           rt.Router.generateRoute(settings: settings),
     );
