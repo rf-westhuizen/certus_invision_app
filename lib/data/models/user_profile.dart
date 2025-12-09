@@ -1,4 +1,4 @@
-class UserProfile{
+class UserProfile {
   final String id;
   final String name;
   final Map<String, bool> permissions;

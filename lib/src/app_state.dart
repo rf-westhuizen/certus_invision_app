@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 
 import '../data/models/user_profile.dart';
 
+enum AccessLevel {
+  admin,
+  engineering,
+  production,
+  maintenance,
+  viewer
+}
+
+enum AccessRights {
+  create,
+  read,
+  update,
+  delete
+}
+
+
 class AppState extends ChangeNotifier {
 
   UserProfile? _currentUser;
@@ -73,6 +89,21 @@ class AppState extends ChangeNotifier {
     } finally {
       _currentUser = null;
       notifyListeners();
+    }
+  }
+
+  bool hasPermission(String permission) {
+    if (_currentUser == null) return false;
+
+    switch (permission) {
+      case 'engineering':
+        return _currentUser!.canEditEngineering;
+      case 'admin':
+        return _currentUser!.isAdmin;
+      case 'production':
+        return _currentUser!.permissions['production'] == true;
+      default:
+        return false;
     }
   }
 

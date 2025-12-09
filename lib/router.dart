@@ -67,15 +67,22 @@ class Router {
         required String permission,
         required Widget child,
       }) {
-    final canAccess = context.select<AppState, bool>((state) {
-      if (state.isLoading) return false;
-      if (permission == 'engineering') {
-        return state.canEditEngineering;
-      }
-      return false;  // Default to false for routes without specific permissions
-    });
+    final appState = context.watch<AppState>();
 
-    if (canAccess) return child;
+
+    if (!appState.isInitialized || appState.isLoading) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+
+    if (!appState.isAuthenticated) {
+      return const LoginScreen();
+    }
+
+
+
+    if (appState.hasPermission(permission)) {
+      return child;
+    }
     return const UnauthorizedScreen();
   }
 

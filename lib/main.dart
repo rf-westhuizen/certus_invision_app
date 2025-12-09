@@ -1,5 +1,4 @@
 import 'package:certus_invision_app/src/app_state.dart';
-import 'package:certus_invision_app/ui/views/landing_screen.dart';
 import 'package:certus_invision_app/ui/views/login_screen.dart';
 import 'package:drift_postgres/drift_postgres.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,6 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        /// TODO: refactor or rewrite code: Not being used atm
         ChangeNotifierProvider<AppState>(
           create: (ctx) => AppState()..initializeAuth(),
         ),
